@@ -1,0 +1,50 @@
+.login-page {
+  text-align: center;
+  padding-top: 2rem;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#eeeeee),
+    to(#00adb5)
+  );
+  background: -webkit-linear-gradient(right, #eeeeee, #00adb5);
+  background: -o-linear-gradient(right, #eeeeee, #00adb5);
+  background: linear-gradient(270deg, #eeeeee, #00adb5);
+  background-size: 400% 400%;
+  -webkit-animation: LoginBG 30s ease infinite;
+  animation: LoginBG 30s ease infinite;
+}
+.login-btn {
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+}
+.login-form fieldset {
+  border-radius: 1rem;
+  border: 1px solid #393e46;
+  background-color: #fff;
+}
+@-webkit-keyframes LoginBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes LoginBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

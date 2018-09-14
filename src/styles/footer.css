@@ -1,0 +1,11 @@
+.footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: footer;
+  padding: 0.25rem 0;
+  text-align: center;
+  color: #eeeeee;
+  background-color: #222831;
+  -webkit-box-shadow: 0 -2px 5px #393e46;
+  box-shadow: 0 -2px 5px #393e46;
+}

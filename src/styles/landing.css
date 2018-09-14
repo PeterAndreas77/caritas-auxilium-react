@@ -1,0 +1,11 @@
+.content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: content;
+  text-align: center;
+  font-family: "Roboto";
+  color: #222831;
+}
+.landing-page {
+  font-size: 1.5rem;
+}
