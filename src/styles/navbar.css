@@ -43,7 +43,6 @@ input:checked ~ .inside-menu-content {
   max-height: 600px;
 }
 input#outside-menu,
-input#inside-menu,
-.inside-collapsible {
+input#inside-menu {
   display: none;
 }

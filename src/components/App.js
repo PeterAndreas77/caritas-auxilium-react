@@ -5,17 +5,27 @@ import Footer from "./footer";
 import Landing from "./landing";
 import Register from "./register";
 import Login from "./login";
+import Main from "./main";
+import Crisis from "./crisis";
+import Donation from "./donation";
+import Account from "./account";
+import Report from "./report";
 import "../styles/app.css";
 
 const App = () => {
   return (
     <Router>
       <div className="container">
-        <Header />
+        <Header isLoggedIn={true} />
         <Route path="/" exact={true} component={Landing} />
-        <Route path="/home" component={Landing} />
+        <Route path="/landing" component={Landing} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/main" component={Main} />
+        <Route path="/crisis" component={Crisis} />
+        <Route path="/donation" component={Donation} />
+        <Route path="/account" component={Account} />
+        <Route path="/report" component={Report} />
         <Footer />
       </div>
     </Router>
