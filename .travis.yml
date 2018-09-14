@@ -1,0 +1,12 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: W6EqfplOXondoIgepI0AMYT03X/ybLIDQxS9lgiluhxFi0YyDctCzNvA13kL6LjhRTbNdpcPOFF+y5PT2GHKvoPwJyPiI4upE++wKLevwGdGlaXRURYNnBaqYGn9rJmShyshkvKQ1LS4s9pPZq6TlkvGbdiCzS2j4yOzjM6tdXE1GzX0kZnGZ2UHxFXC1yrUIrJogSG6qQPN59+af+X0gSF134lCiebMwdeWjeBmjSj7Rls4vp+/HeYdtE4rFgGdIhHKCQNh64vb44SYV4shMN+jzQQM53wpOnaUX79pw6m87h0aUCRBqjw6mqanmQ95GkMx/n7nq2vdyGY7uUQOcA/DKy+32z8w91BKJzTmaRNP3W5MtWxUkbIVlYwmgsVsQReKtSa3V1Orrsa5mwrtmuWWW3Q7Xss1OYlgE9xB3wyLzhkSa6sL8DvLzil31zNt30gw1hwEYLipBimq66+AE+sz6CK+IhKpM0tVBIdOM8hHUFgiDWRjnYWoWZ0fsy2usbYuJtQKjTH2uStTM03OBGuRCQk0qG4bcBiSHSnUV+JlY4JAoFxSa/Pm1vzaC59uUd0lmfPJG8FSG649VIR00M491v+Mp/IcJgPlNqHb+tFY4ZQTBIsp/HvuSaMxLJ6PaI+zYzdE4WKOFX5I045sesHqUDR+Qnlrjw2gJR0cHcw=
+  app: protected-citadel-80015
+  on:
+    repo: PeterAndreas77/caritas-auxilium-react
