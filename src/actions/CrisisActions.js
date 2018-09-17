@@ -24,6 +24,20 @@ export function fetchRecentCrisis() {
       data: { preset: "latest" }
     };
     return axios(request)
+      .then(res => dispatch(fetchCrisisSuccess(res.data.data)))
+      .catch(err => dispatch(fetchCrisisError(err)));
+  };
+}
+
+export function searchRecentCrisis(term) {
+  return dispatch => {
+    dispatch(fetchCrisisBegin());
+    const request = {
+      method: "post",
+      url: `https://api.reliefweb.int/v1/reports?appname=caritas`,
+      data: { query: { value: term }, preset: "latest" }
+    };
+    return axios(request)
       .then(res => {
         console.log(res.data.data);
         dispatch(fetchCrisisSuccess(res.data.data));
