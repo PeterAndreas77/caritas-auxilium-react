@@ -15,7 +15,6 @@
   margin-bottom: 40px;
 }
 .button {
-  display: inline;
   margin: 0 20px;
   text-transform: uppercase;
   color: #fff;
@@ -23,6 +22,7 @@
   font-size: 1rem;
   padding: 0.5rem 0.25rem;
   border: 2px solid #00adb5;
+  -webkit-box-shadow: 0 2px 4px #393e46;
   box-shadow: 0 2px 4px #393e46;
   border-radius: 10px;
   font-weight: bold;
@@ -31,6 +31,7 @@
   cursor: pointer;
   color: #00adb5;
   background-color: #fff;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 

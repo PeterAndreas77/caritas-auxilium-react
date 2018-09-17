@@ -6,7 +6,6 @@ import Landing from "./landing";
 import Register from "./register";
 import Login from "./login";
 import Main from "./main";
-import Crisis from "./crisis";
 import Donation from "./donation";
 import Account from "./account";
 import Report from "./report";
@@ -17,12 +16,11 @@ const App = () => {
     <Router>
       <div className="container">
         <Header isLoggedIn={true} />
-        <Route path="/" exact={true} component={Landing} />
+        <Route path="/" exact={true} component={Main} />
         <Route path="/landing" component={Landing} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/main" component={Main} />
-        <Route path="/crisis" component={Crisis} />
         <Route path="/donation" component={Donation} />
         <Route path="/account" component={Account} />
         <Route path="/report" component={Report} />

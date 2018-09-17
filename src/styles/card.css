@@ -1,0 +1,14 @@
+/* === CARD STYLING === */
+.donation-card,
+.account-card {
+  line-height: 1.35;
+  padding: 10px 5px;
+  border: 2px solid #222831;
+  -webkit-box-shadow: 0 2px 4px #393e46;
+  box-shadow: 0 2px 4px #393e46;
+  border-radius: 5px;
+}
+.single-crisis p {
+  line-height: 1.4;
+  text-align: left;
+}

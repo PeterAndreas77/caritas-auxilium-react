@@ -17,11 +17,6 @@ const InsideNav = () => {
             </Link>
           </li>
           <li>
-            <Link to="/crisis">
-              <i className="fas fa-donate" /> My Crisis
-            </Link>
-          </li>
-          <li>
             <Link to="/donation">
               <i className="fas fa-file-invoice-dollar" /> My Donations
             </Link>
