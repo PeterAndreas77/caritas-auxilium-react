@@ -1,13 +1,13 @@
 import React from "react";
-import CrisisContainer from "./CrisisContainer";
-import CrisisSearchBar from "./CrisisSearchBar";
+import CrisisGrid from "./CrisisGrid";
+import CrisisSearch from "./CrisisSearch";
 import "../styles/main.css";
 
 const Main = () => {
   return (
     <section className="recent-crisis">
-      <CrisisSearchBar />
-      <CrisisContainer />
+      <CrisisSearch />
+      <CrisisGrid />
       <div className="donation-page">
         <form className="donation-form">
           <fieldset>

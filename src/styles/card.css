@@ -1,5 +1,6 @@
 /* === CARD STYLING === */
 .donation-card,
+.crisis-card,
 .account-card {
   line-height: 1.35;
   padding: 10px 5px;

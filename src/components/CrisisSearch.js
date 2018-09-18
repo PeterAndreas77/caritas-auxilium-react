@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { searchRecentCrisis } from "../actions/CrisisActions";
 
-class CrisisSearchBar extends React.Component {
+class CrisisSearch extends React.Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -32,4 +32,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(CrisisSearchBar);
+)(CrisisSearch);

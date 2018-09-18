@@ -1,35 +1,63 @@
 import {
-  FETCH_CRISIS_BEGIN,
-  FETCH_CRISIS_SUCCESS,
-  FETCH_CRISIS_ERROR
+  FETCH_RECENT_CRISIS_START,
+  FETCH_RECENT_CRISIS_SUCCESS,
+  FETCH_RECENT_CRISIS_FAILURE,
+  FETCH_SINGLE_CRISIS_START,
+  FETCH_SINGLE_CRISIS_SUCCESS,
+  FETCH_SINGLE_CRISIS_FAILURE
 } from "../actions/CrisisActions";
 
 const initialState = {
-  recentCrisisItems: [],
-  loading: false,
-  error: null
+  recentCrisis: {
+    items: [],
+    loading: false,
+    error: null
+  },
+  singleCrisis: { item: [], loading: false, error: null }
 };
 
-const crisisReducer = (state = initialState, action) => {
+const recentCrisisReducer = (state = initialState.recentCrisis, action) => {
   switch (action.type) {
-    case FETCH_CRISIS_BEGIN:
+    case FETCH_RECENT_CRISIS_START:
       return { ...state, loading: true, error: null };
-    case FETCH_CRISIS_SUCCESS:
+    case FETCH_RECENT_CRISIS_SUCCESS:
       return {
         ...state,
         loading: false,
-        recentCrisisItems: action.payload.crisis
+        items: action.payload.crisis
       };
-    case FETCH_CRISIS_ERROR:
+    case FETCH_RECENT_CRISIS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
-        recentCrisisItems: []
+        items: []
       };
     default:
       return state;
   }
 };
 
-export default crisisReducer;
+const singleCrisisReducer = (state = initialState.singleCrisis, action) => {
+  switch (action.type) {
+    case FETCH_SINGLE_CRISIS_START:
+      return { ...state, loading: true, error: null };
+    case FETCH_SINGLE_CRISIS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        item: action.payload.crisis
+      };
+    case FETCH_SINGLE_CRISIS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        item: []
+      };
+    default:
+      return state;
+  }
+};
+
+export { recentCrisisReducer, singleCrisisReducer };
