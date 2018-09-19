@@ -1,6 +1,6 @@
 import React from "react";
 
-const Donation = () => {
+const DonationPage = () => {
   return (
     <section className="my-donation">
       <div className="form-group">
@@ -36,4 +36,4 @@ const Donation = () => {
   );
 };
 
-export default Donation;
+export default DonationPage;

@@ -3,9 +3,9 @@ import CrisisGrid from "./CrisisGrid";
 import CrisisSearch from "./CrisisSearch";
 import CrisisSingle from "./CrisisSingle";
 import CrisisDonateForm from "./CrisisDonateForm";
-import "../styles/main.css";
+import "../../styles/main.css";
 
-class MainPage extends React.Component {
+class CrisisPage extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -80,4 +80,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default CrisisPage;

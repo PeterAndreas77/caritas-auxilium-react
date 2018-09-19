@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { searchRecentCrisis } from "../actions/CrisisActions";
+import { searchRecentCrisis } from "../../actions/CrisisActions";
 
 class CrisisSearch extends React.Component {
   constructor(props) {

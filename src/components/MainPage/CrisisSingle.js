@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSingleCrisis } from "../actions/CrisisActions";
+import { fetchSingleCrisis } from "../../actions/CrisisActions";
 
 class CrisisSingle extends React.Component {
   componentDidMount() {
