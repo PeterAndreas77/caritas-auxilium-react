@@ -69,8 +69,8 @@ export function fetchSingleCrisis(id) {
     return axios
       .get(url)
       .then(res => {
-        console.log(res.data);
-        dispatch(fetchSingleCrisisSuccess(res.data));
+        console.log(res.data.data[0]);
+        dispatch(fetchSingleCrisisSuccess(res.data.data[0]));
       })
       .catch(err => dispatch(fetchSingleCrisisFailure(err)));
   };

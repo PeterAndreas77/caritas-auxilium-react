@@ -5,7 +5,7 @@ import Footer from "./footer";
 import Landing from "./landing";
 import Register from "./register";
 import Login from "./login";
-import Main from "./main";
+import MainPage from "./MainPage";
 import Donation from "./donation";
 import Account from "./account";
 import Report from "./report";
@@ -16,11 +16,11 @@ const App = () => {
     <Router>
       <div className="container">
         <Header isLoggedIn={true} />
-        <Route path="/" exact={true} component={Main} />
+        <Route path="/" exact={true} component={MainPage} />
         <Route path="/landing" component={Landing} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/main" component={Main} />
+        <Route path="/main" component={MainPage} />
         <Route path="/donation" component={Donation} />
         <Route path="/account" component={Account} />
         <Route path="/report" component={Report} />

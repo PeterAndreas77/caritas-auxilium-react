@@ -13,7 +13,7 @@ const initialState = {
     loading: false,
     error: null
   },
-  singleCrisis: { item: [], loading: false, error: null }
+  singleCrisis: { item: "", loading: false, error: null }
 };
 
 const recentCrisisReducer = (state = initialState.recentCrisis, action) => {
@@ -53,7 +53,7 @@ const singleCrisisReducer = (state = initialState.singleCrisis, action) => {
         ...state,
         loading: false,
         error: action.payload.error,
-        item: []
+        item: ""
       };
     default:
       return state;

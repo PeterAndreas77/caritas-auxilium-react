@@ -11,7 +11,6 @@ class CrisisSearch extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const term = this.textInput.value.trim();
-    console.log(term);
     this.props.searchRecentCrisis(term);
   }
 
@@ -19,7 +18,9 @@ class CrisisSearch extends React.Component {
     return (
       <form onSubmit={this.onSubmit} className="form-group">
         <input type="text" ref={input => (this.textInput = input)} />
-        <button type="submit">search</button>
+        <button type="submit" onClick={this.props.searchClicked}>
+          search
+        </button>
       </form>
     );
   }

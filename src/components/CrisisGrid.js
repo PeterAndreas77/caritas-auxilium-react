@@ -2,27 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchRecentCrisis } from "../actions/CrisisActions";
-import CrisisSingle from "./CrisisSingle";
 import "../styles/container.css";
 import "../styles/card.css";
 
 class CrisisGrid extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { reading: false, reportID: "" };
-  }
-
   componentDidMount() {
     this.props.dispatch(fetchRecentCrisis());
-  }
-
-  handleID = e => {
-    const id = e.target.getAttribute("report-id");
-    this.setState({ reportID: id });
-  };
-
-  setReading(reading) {
-    this.setState({ reading });
   }
 
   render() {
@@ -32,10 +17,9 @@ class CrisisGrid extends React.Component {
         <p>{item.fields.title}</p>
         <p
           className="button"
-          report-id={item.id}
-          onClick={e => {
-            this.setReading(true);
-            this.handleID(e);
+          onClick={() => {
+            this.props.readMoreClicked();
+            this.props.handleID(item.id);
           }}
         >
           read more
@@ -44,19 +28,16 @@ class CrisisGrid extends React.Component {
     ));
 
     if (loading) {
-      return <div className="crisis-container">Loading...</div>;
+      return (
+        <div className="crisis-container">
+          <i className="fas fa-spinner fa-spin" />
+          Loading...
+        </div>
+      );
     }
 
     if (error) {
       return <div className="crisis-container">Error! {error.message}</div>;
-    }
-
-    if (this.state.reading === true) {
-      return (
-        <div className="crisis-container">
-          <CrisisSingle reportID={this.state.reportID} />
-        </div>
-      );
     }
 
     return <div className="crisis-container">{cards}</div>;
