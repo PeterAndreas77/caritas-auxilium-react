@@ -15,8 +15,8 @@ const App = () => {
   return (
     <Router>
       <div className="container">
-        <Header isLoggedIn={false} />
-        <Route path="/" exact={true} component={LandingPage} />
+        <Header isLoggedIn={true} />
+        <Route path="/" exact={true} component={ReportPage} />
         <Route path="/landing" component={LandingPage} />
         <Route path="/register" component={RegisterPage} />
         <Route path="/login" component={Login} />

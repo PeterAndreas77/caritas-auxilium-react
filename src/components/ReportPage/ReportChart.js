@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Chart from "chart.js";
+import { Bar } from "react-chartjs-2";
 import moment from "moment";
 
 class ReportChart extends React.Component {
@@ -32,23 +32,18 @@ class ReportChart extends React.Component {
         }
       }
     }
-    // Grab element to render the chart to
-    let ctx = document.getElementById("myChart");
-    let myChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: Object.keys(monthArray),
-        datasets: [
-          {
-            label: " Amount of Donations per Month (US$)",
-            data: Object.values(monthArray),
-            backgroundColor: ["rgba(57, 62, 70, 0.2)"],
-            borderColor: ["rgba(57, 62, 70, 1)"],
-            borderWidth: 1
-          }
-        ]
-      }
-    });
+    let data = {
+      labels: Object.keys(monthArray),
+      datasets: [
+        {
+          label: " Amount of Donations per Month (US$)",
+          data: Object.values(monthArray),
+          backgroundColor: ["rgba(57, 62, 70, 0.2)"],
+          borderColor: ["rgba(57, 62, 70, 1)"],
+          borderWidth: 1
+        }
+      ]
+    };
 
     if (loading) {
       return (
@@ -65,7 +60,11 @@ class ReportChart extends React.Component {
 
     return (
       <div className="my-report-container">
-        <canvas id="myChart" />
+        <Bar
+          id="myChart"
+          data={data}
+          options={{ maintainAspectRatio: false }}
+        />
       </div>
     );
   }

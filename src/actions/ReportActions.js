@@ -24,7 +24,7 @@ export default function fetchReport(year) {
     const username = "jojo";
     const request = {
       method: "get",
-      url: `http://localhost:3000/report/${username}/${year}`
+      url: `http://localhost:8000/report/${username}/${year}`
     };
     return axios(request)
       .then(res => dispatch(fetchReportSuccess(res.data)))

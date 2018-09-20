@@ -11,6 +11,7 @@ class ReportPull extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const year = this.textInput.value.trim();
+    console.log(typeof year);
     this.props.fetchReport(year);
   }
 
@@ -18,7 +19,11 @@ class ReportPull extends React.Component {
     return (
       <form onSubmit={this.onSubmit} className="form-group">
         <label htmlFor="reportYear">Pull Report by Year</label>
-        <input type="number" name="reportYear" />
+        <input
+          type="number"
+          name="reportYear"
+          ref={input => (this.textInput = input)}
+        />
         <button type="submit">pull</button>
       </form>
     );
