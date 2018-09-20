@@ -1,19 +1,23 @@
 import React from "react";
+import { connect } from "react-redux";
 import CrisisGrid from "./CrisisGrid";
 import CrisisSearch from "./CrisisSearch";
 import CrisisSingle from "./CrisisSingle";
 import CrisisDonateForm from "./CrisisDonateForm";
+import moment from "moment";
+import { createDonation } from "../../actions/DonationActions";
 import "../../styles/main.css";
 
 class CrisisPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       gridShown: true,
       readMoreShown: false,
       donateFormShown: false,
       reportID: ""
     };
+
     this.showGrid = this.showGrid.bind(this);
     this.showReadMore = this.showReadMore.bind(this);
     this.showDonateForm = this.showDonateForm.bind(this);
@@ -21,7 +25,10 @@ class CrisisPage extends React.Component {
   }
 
   submit = values => {
-    console.log(values);
+    // changethis
+    values.donor = "jojo";
+    values.year = moment().format("YYYY");
+    this.props.dispatch(createDonation(values));
   };
 
   showGrid() {
@@ -31,6 +38,7 @@ class CrisisPage extends React.Component {
       donateFormShown: false
     });
   }
+
   showReadMore() {
     this.setState({
       readMoreShown: true,
@@ -38,6 +46,7 @@ class CrisisPage extends React.Component {
       donateFormShown: false
     });
   }
+
   showDonateForm() {
     this.setState({
       donateFormShown: true,
@@ -45,6 +54,7 @@ class CrisisPage extends React.Component {
       readMoreShown: false
     });
   }
+
   idCatcher(id) {
     this.setState({ reportID: id });
   }
@@ -61,6 +71,7 @@ class CrisisPage extends React.Component {
         </section>
       );
     }
+
     if (this.state.readMoreShown) {
       return (
         <section className="recent-crisis">
@@ -73,18 +84,16 @@ class CrisisPage extends React.Component {
         </section>
       );
     }
+
     if (this.state.donateFormShown) {
       return (
         <section className="recent-crisis">
           <CrisisSearch searchClicked={this.showGrid} />
-          <CrisisDonateForm
-            onSubmit={this.submit}
-            cancelClicked={this.showGrid}
-          />
+          <CrisisDonateForm onSubmit={this.submit} />
         </section>
       );
     }
   }
 }
 
-export default CrisisPage;
+export default connect()(CrisisPage);

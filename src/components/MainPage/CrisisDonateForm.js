@@ -12,19 +12,22 @@ let CrisisDonateForm = props => {
         and keep record of it.
       </p>
       <div className="form-group">
-        <label htmlFor="charityName">Charity Name</label>
-        <Field name="charityName" component="input" type="text" />
+        <label htmlFor="title">Crisis Title </label>
+        <Field name="title" component="input" type="text" />
       </div>
       <div className="form-group">
-        <label htmlFor="donationAmt">Donation Amount</label>
-        <Field name="donationAmt" component="input" type="number" />
+        <label htmlFor="charity">Charity Name </label>
+        <Field name="charity" component="input" type="text" />
       </div>
       <div className="form-group">
-        <label htmlFor="confNum">Confirmation Number</label>
+        <label htmlFor="amount">Donation Amount </label>
+        <Field name="amount" component="input" type="number" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="confNum">Confirmation Number </label>
         <Field name="confNum" component="input" type="text" />
       </div>
       <button type="submit">submit</button>
-      <button>cancel</button>
     </form>
   );
 };

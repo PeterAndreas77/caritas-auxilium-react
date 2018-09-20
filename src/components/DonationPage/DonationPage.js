@@ -11,6 +11,10 @@ class DonationPage extends React.Component {
     this.showUpdateForm = this.showUpdateForm.bind(this);
   }
 
+  submit = values => {
+    console.log(values);
+  };
+
   showGrid() {
     this.setState({ gridShown: true, updateFormShown: false });
   }
@@ -27,11 +31,15 @@ class DonationPage extends React.Component {
         </section>
       );
     }
+
     if (this.state.updateFormShown) {
       return (
         <section className="my-donation">
           <DonationSearch searchClicked={this.showGrid} />
-          <DonationUpdateForm cancelClicked={this.showGrid} />
+          <DonationUpdateForm
+            onSubmit={this.submit}
+            cancelClicked={this.showGrid}
+          />
         </section>
       );
     }

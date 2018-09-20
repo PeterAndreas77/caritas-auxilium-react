@@ -49,3 +49,34 @@ export function searchDonation(term) {
       .catch(err => dispatch(fetchDonationFailure(err)));
   };
 }
+
+export const CREATE_DONATION_START = "CREATE_DONATION_START";
+export const createDonationStart = () => ({
+  type: CREATE_DONATION_START
+});
+
+export const CREATE_DONATION_SUCCESS = "CREATE_DONATION_SUCCESS";
+export const createDonationSuccess = donation => ({
+  type: CREATE_DONATION_SUCCESS,
+  payload: { donation }
+});
+
+export const CREATE_DONATION_FAILURE = "FETCH_DONATION_FAILURE";
+export const createDonationFailure = error => ({
+  type: CREATE_DONATION_FAILURE,
+  payload: { error }
+});
+
+export function createDonation(newObject) {
+  return dispatch => {
+    dispatch(createDonationStart());
+    const request = {
+      method: "post",
+      url: `http://localhost:3000/donation/create`,
+      data: newObject
+    };
+    return axios(request)
+      .then(res => dispatch(createDonationSuccess(res.data)))
+      .catch(err => dispatch(createDonationFailure(err)));
+  };
+}

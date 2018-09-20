@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import moment from "moment";
 import { fetchDonation } from "../../actions/DonationActions";
 
 class DonationGrid extends React.Component {
@@ -27,6 +28,7 @@ class DonationGrid extends React.Component {
         <button>delete</button>
       </div>
     ));
+
     if (loading) {
       return (
         <div className="donation-container">
@@ -39,6 +41,7 @@ class DonationGrid extends React.Component {
     if (error) {
       return <div className="donation-container">Error! {error.message}</div>;
     }
+
     return <div className="donation-container">{cards}</div>;
   }
 }
