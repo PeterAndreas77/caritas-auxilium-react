@@ -9,6 +9,12 @@
   text-align: center;
   margin: 1rem 0.5rem;
 }
+div .crisis-date {
+  text-align: center;
+}
+.crisis-body {
+  text-align: left;
+}
 
 /* === MY DONATION PAGE STYLE === */
 .my-donation {

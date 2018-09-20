@@ -12,7 +12,7 @@ const InsideNav = () => {
       <div className="inside-menu-content">
         <ul>
           <li>
-            <Link to="/main">
+            <Link to="/crisis">
               <i className="fas fa-hands-helping" /> Recent Crisis
             </Link>
           </li>

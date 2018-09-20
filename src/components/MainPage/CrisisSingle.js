@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import moment from "moment";
 import { fetchSingleCrisis } from "../../actions/CrisisActions";
 
 class CrisisSingle extends React.Component {
@@ -10,6 +11,14 @@ class CrisisSingle extends React.Component {
 
   render() {
     const { item, loading, error } = this.props;
+    let title = "";
+    let date = "";
+    let body = "";
+    if (item.fields != undefined) {
+      title = item.fields.title;
+      date = moment(item.fields.date).format("L");
+      body = item.fields.body;
+    }
 
     if (loading) {
       return (
@@ -26,9 +35,9 @@ class CrisisSingle extends React.Component {
 
     return (
       <div className="single-crisis">
-        <h4 className="crisis-title">{item}</h4>
-        <p className="crisis-date">date</p>
-        <div>Lorem Ipsum</div>
+        <h4 className="crisis-title">{title}</h4>
+        <p className="crisis-date">{date}</p>
+        <p className="crisis-body">{body}</p>
         <button onClick={this.props.donateClicked}>donate</button>
         <button onClick={this.props.cancelClicked}>cancel</button>
       </div>
