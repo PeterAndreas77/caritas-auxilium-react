@@ -20,6 +20,10 @@ class CrisisPage extends React.Component {
     this.idCatcher = this.idCatcher.bind(this);
   }
 
+  submit = values => {
+    console.log(values);
+  };
+
   showGrid() {
     this.setState({
       gridShown: true,
@@ -73,7 +77,10 @@ class CrisisPage extends React.Component {
       return (
         <section className="recent-crisis">
           <CrisisSearch searchClicked={this.showGrid} />
-          <CrisisDonateForm cancelClicked={this.showGrid} />
+          <CrisisDonateForm
+            onSubmit={this.submit}
+            cancelClicked={this.showGrid}
+          />
         </section>
       );
     }

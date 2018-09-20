@@ -51,9 +51,9 @@ CrisisGrid.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  items: state.recentCrisis.items,
-  loading: state.recentCrisis.loading,
-  error: state.recentCrisis.error
+  items: state.recentCrisisReducer.items,
+  loading: state.recentCrisisReducer.loading,
+  error: state.recentCrisisReducer.error
 });
 
 export default connect(mapStateToProps)(CrisisGrid);

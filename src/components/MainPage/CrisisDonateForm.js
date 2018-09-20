@@ -1,38 +1,34 @@
 import React from "react";
+import { Field, reduxForm } from "redux-form";
 
-const CrisisDonateForm = () => {
+let CrisisDonateForm = props => {
+  const { handleSubmit } = props;
   return (
-    <form className="donation-form">
-      <fieldset>
-        <legend>Donate your $$$</legend>
-        <p id="IDkeeper">
-          Unfortunately, there are no API for charity available. So, a good old
-          fashioned googling is the way to donate. When you are done, go back
-          here and keep record of it.
-        </p>
-        <div className="form-group">
-          <label htmlFor="charityName">Charity Name</label>
-          <input type="text" id="charityName" name="charityName" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="donationAmount">Donation Amount</label>
-          <input type="number" id="donationAmount" name="donationAmount" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirmationNumber">Confirmation Number</label>
-          <input
-            type="text"
-            id="confirmationNumber"
-            name="confirmationNumber"
-          />
-        </div>
-        <button className="submit-btn" type="submit">
-          submit
-        </button>
-        <button className="cancel-donation-btn">cancel</button>
-      </fieldset>
+    <form onSubmit={handleSubmit}>
+      <h4>Donate your $$$</h4>
+      <p>
+        Unfortunately, there are no API for charity available. So, a good old
+        fashioned googling is the way to donate. When you are done, go back here
+        and keep record of it.
+      </p>
+      <div className="form-group">
+        <label htmlFor="charityName">Charity Name</label>
+        <Field name="charityName" component="input" type="text" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="donationAmt">Donation Amount</label>
+        <Field name="donationAmt" component="input" type="number" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="confNum">Confirmation Number</label>
+        <Field name="confNum" component="input" type="text" />
+      </div>
+      <button type="submit">submit</button>
+      <button>cancel</button>
     </form>
   );
 };
+
+CrisisDonateForm = reduxForm({ form: "donate" })(CrisisDonateForm);
 
 export default CrisisDonateForm;

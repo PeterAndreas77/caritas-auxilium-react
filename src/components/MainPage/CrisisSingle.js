@@ -26,7 +26,7 @@ class CrisisSingle extends React.Component {
 
     return (
       <div className="single-crisis">
-        <h4 className="crisis-title">title</h4>
+        <h4 className="crisis-title">{item}</h4>
         <p className="crisis-date">date</p>
         <div>Lorem Ipsum</div>
         <button onClick={this.props.donateClicked}>donate</button>
@@ -37,9 +37,9 @@ class CrisisSingle extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  item: state.singleCrisis.item,
-  loading: state.singleCrisis.loading,
-  error: state.singleCrisis.error
+  item: state.singleCrisisReducer.item,
+  loading: state.singleCrisisReducer.loading,
+  error: state.singleCrisisReducer.error
 });
 
 export default connect(mapStateToProps)(CrisisSingle);

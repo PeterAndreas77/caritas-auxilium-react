@@ -8,7 +8,7 @@ import Login from "./login";
 import CrisisPage from "./MainPage/CrisisPage";
 import Donation from "./DonationPage/DonationPage";
 import Account from "./account";
-import Report from "./report";
+import ReportPage from "./ReportPage/ReportPage";
 import "../styles/app.css";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/crisis" component={CrisisPage} />
         <Route path="/donation" component={Donation} />
         <Route path="/account" component={Account} />
-        <Route path="/report" component={Report} />
+        <Route path="/report" component={ReportPage} />
         <Footer />
       </div>
     </Router>

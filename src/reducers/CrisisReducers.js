@@ -7,16 +7,13 @@ import {
   FETCH_SINGLE_CRISIS_FAILURE
 } from "../actions/CrisisActions";
 
-const initialState = {
-  recentCrisis: {
-    items: [],
-    loading: false,
-    error: null
-  },
-  singleCrisis: { item: "", loading: false, error: null }
+const initialRecentCrisis = {
+  items: [],
+  loading: false,
+  error: null
 };
 
-const recentCrisisReducer = (state = initialState.recentCrisis, action) => {
+const recentCrisisReducer = (state = initialRecentCrisis, action) => {
   switch (action.type) {
     case FETCH_RECENT_CRISIS_START:
       return { ...state, loading: true, error: null };
@@ -38,7 +35,13 @@ const recentCrisisReducer = (state = initialState.recentCrisis, action) => {
   }
 };
 
-const singleCrisisReducer = (state = initialState.singleCrisis, action) => {
+const initialSingleCrisis = {
+  item: [],
+  loading: false,
+  error: null
+};
+
+const singleCrisisReducer = (state = initialSingleCrisis, action) => {
   switch (action.type) {
     case FETCH_SINGLE_CRISIS_START:
       return { ...state, loading: true, error: null };
@@ -53,7 +56,7 @@ const singleCrisisReducer = (state = initialState.singleCrisis, action) => {
         ...state,
         loading: false,
         error: action.payload.error,
-        item: ""
+        item: []
       };
     default:
       return state;
