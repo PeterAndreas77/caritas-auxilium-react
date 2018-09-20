@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import moment from "moment";
 import { fetchDonation } from "../../actions/DonationActions";
 
 class DonationGrid extends React.Component {
@@ -11,7 +10,7 @@ class DonationGrid extends React.Component {
   render() {
     const { items, loading, error } = this.props;
     const cards = items.map((item, index) => (
-      <div className="donation-card" key={index} donation-id={item.id}>
+      <div className="donation-card" key={index}>
         <h4>{item.title}</h4>
         <p>
           Created:
@@ -24,7 +23,14 @@ class DonationGrid extends React.Component {
         <p>
           $<strong>{item.amount}</strong> to ${item.charity}
         </p>
-        <button onClick={this.props.updateClicked}>update</button>
+        <button
+          onClick={() => {
+            this.props.updateClicked();
+            this.props.handleID(item.id);
+          }}
+        >
+          update
+        </button>
         <button>delete</button>
       </div>
     ));

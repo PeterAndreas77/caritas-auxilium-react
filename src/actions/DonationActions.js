@@ -61,7 +61,7 @@ export const createDonationSuccess = donation => ({
   payload: { donation }
 });
 
-export const CREATE_DONATION_FAILURE = "FETCH_DONATION_FAILURE";
+export const CREATE_DONATION_FAILURE = "CREATE_DONATION_FAILURE";
 export const createDonationFailure = error => ({
   type: CREATE_DONATION_FAILURE,
   payload: { error }
@@ -78,5 +78,36 @@ export function createDonation(newObject) {
     return axios(request)
       .then(res => dispatch(createDonationSuccess(res.data)))
       .catch(err => dispatch(createDonationFailure(err)));
+  };
+}
+
+export const UPDATE_DONATION_START = "UPDATE_DONATION_START";
+export const updateDonationStart = () => ({
+  type: UPDATE_DONATION_START
+});
+
+export const UPDATE_DONATION_SUCCESS = "UPDATE_DONATION_SUCCESS";
+export const updateDonationSuccess = donation => ({
+  type: UPDATE_DONATION_SUCCESS,
+  payload: { donation }
+});
+
+export const UPDATE_DONATION_FAILURE = "UPDATE_DONATION_FAILURE";
+export const updateDonationFailure = error => ({
+  type: UPDATE_DONATION_FAILURE,
+  payload: { error }
+});
+
+export function updateDonation(updateObject, id) {
+  return dispatch => {
+    dispatch(updateDonationStart());
+    const request = {
+      method: "put",
+      url: `http://localhost:3000/donation/update/${id}`,
+      data: updateObject
+    };
+    return axios(request)
+      .then(res => dispatch(updateDonationSuccess(res.data)))
+      .catch(err => dispatch(updateDonationFailure(err)));
   };
 }
