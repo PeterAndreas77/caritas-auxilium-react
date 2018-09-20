@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import DonationSearch from "./DonationSearch";
 import DonationGrid from "./DonationGrid";
 import DonationUpdateForm from "./DonationUpdateForm";
-import { updateDonation } from "../../actions/DonationActions";
+import { updateDonation, deleteDonation } from "../../actions/DonationActions";
 
 class DonationPage extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class DonationPage extends React.Component {
     this.state = { gridShown: true, updateFormShown: false, donationID: "" };
     this.showGrid = this.showGrid.bind(this);
     this.showUpdateForm = this.showUpdateForm.bind(this);
+    this.delDonationItem = this.delDonationItem.bind(this);
     this.idCatcher = this.idCatcher.bind(this);
   }
 
@@ -28,6 +29,10 @@ class DonationPage extends React.Component {
     this.setState({ gridShown: false, updateFormShown: true });
   }
 
+  delDonationItem(id) {
+    this.props.dispatch(deleteDonation(id));
+  }
+
   idCatcher(id) {
     this.setState({ donationID: id });
   }
@@ -39,6 +44,7 @@ class DonationPage extends React.Component {
           <DonationSearch searchClicked={this.showGrid} />
           <DonationGrid
             updateClicked={this.showUpdateForm}
+            deleteClicked={this.delDonationItem}
             handleID={this.idCatcher}
           />
         </section>

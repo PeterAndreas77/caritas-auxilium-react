@@ -7,7 +7,10 @@ import {
   CREATE_DONATION_FAILURE,
   UPDATE_DONATION_START,
   UPDATE_DONATION_SUCCESS,
-  UPDATE_DONATION_FAILURE
+  UPDATE_DONATION_FAILURE,
+  DELETE_DONATION_START,
+  DELETE_DONATION_SUCCESS,
+  DELETE_DONATION_FAILURE
 } from "../actions/DonationActions";
 
 const initialDonations = {
@@ -48,6 +51,16 @@ const donationReducer = (state = initialDonations, action) => {
         )
       };
     case UPDATE_DONATION_FAILURE:
+      return { ...state, loading: false, error: action.payload.error };
+    case DELETE_DONATION_START:
+      return { ...state, loading: true, error: null };
+    case DELETE_DONATION_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        items: state.items.filter(item => item.id !== action.payload.id)
+      };
+    case DELETE_DONATION_FAILURE:
       return { ...state, loading: false, error: action.payload.error };
     default:
       return state;

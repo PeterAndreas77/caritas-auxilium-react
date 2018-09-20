@@ -27,10 +27,7 @@ export function fetchDonation() {
       url: `http://localhost:3000/donation-all/${username}`
     };
     return axios(request)
-      .then(res => {
-        console.log(res.data);
-        dispatch(fetchDonationSuccess(res.data));
-      })
+      .then(res => dispatch(fetchDonationSuccess(res.data)))
       .catch(err => dispatch(fetchDonationFailure(err)));
   };
 }
@@ -109,5 +106,35 @@ export function updateDonation(updateObject, id) {
     return axios(request)
       .then(res => dispatch(updateDonationSuccess(res.data)))
       .catch(err => dispatch(updateDonationFailure(err)));
+  };
+}
+
+export const DELETE_DONATION_START = "DELETE_DONATION_START";
+export const deleteDonationStart = () => ({
+  type: DELETE_DONATION_START
+});
+
+export const DELETE_DONATION_SUCCESS = "DELETE_DONATION_SUCCESS";
+export const deleteDonationSuccess = id => ({
+  type: DELETE_DONATION_SUCCESS,
+  payload: { id }
+});
+
+export const DELETE_DONATION_FAILURE = "DELETE_DONATION_FAILURE";
+export const deleteDonationFailure = error => ({
+  type: DELETE_DONATION_FAILURE,
+  payload: { error }
+});
+
+export function deleteDonation(id) {
+  return dispatch => {
+    dispatch(deleteDonationStart());
+    const request = {
+      method: "delete",
+      url: `http://localhost:3000/donation/delete/${id}`
+    };
+    return axios(request)
+      .then(() => dispatch(deleteDonationSuccess(id)))
+      .catch(err => dispatch(deleteDonationFailure(err)));
   };
 }

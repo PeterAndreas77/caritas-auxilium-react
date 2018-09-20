@@ -31,7 +31,9 @@ class DonationGrid extends React.Component {
         >
           update
         </button>
-        <button>delete</button>
+        <button onClick={() => this.props.deleteClicked(item.id)}>
+          delete
+        </button>
       </div>
     ));
 

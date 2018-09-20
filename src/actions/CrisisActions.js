@@ -68,10 +68,7 @@ export function fetchSingleCrisis(id) {
     const url = `https://api.reliefweb.int/v1/reports/${id}`;
     return axios
       .get(url)
-      .then(res => {
-        console.log(res.data.data[0]);
-        dispatch(fetchSingleCrisisSuccess(res.data.data[0]));
-      })
+      .then(res => dispatch(fetchSingleCrisisSuccess(res.data.data[0])))
       .catch(err => dispatch(fetchSingleCrisisFailure(err)));
   };
 }
