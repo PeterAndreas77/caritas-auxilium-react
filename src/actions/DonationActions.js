@@ -24,7 +24,7 @@ export function fetchDonation() {
     const username = "jojo";
     const request = {
       method: "get",
-      url: `http://localhost:3000/donation-all/${username}`
+      url: `http://localhost:8000/donation-all/${username}`
     };
     return axios(request)
       .then(res => dispatch(fetchDonationSuccess(res.data)))
@@ -39,7 +39,7 @@ export function searchDonation(term) {
     const username = "jojo";
     const request = {
       method: "get",
-      url: `http://localhost:3000/donation/search/${username}/${term}`
+      url: `http://localhost:8000/donation/search/${username}/${term}`
     };
     return axios(request)
       .then(res => dispatch(fetchDonationSuccess(res.data)))
@@ -69,7 +69,7 @@ export function createDonation(newObject) {
     dispatch(createDonationStart());
     const request = {
       method: "post",
-      url: `http://localhost:3000/donation/create`,
+      url: `http://localhost:8000/donation/create`,
       data: newObject
     };
     return axios(request)
@@ -100,7 +100,7 @@ export function updateDonation(updateObject, id) {
     dispatch(updateDonationStart());
     const request = {
       method: "put",
-      url: `http://localhost:3000/donation/update/${id}`,
+      url: `http://localhost:8000/donation/update/${id}`,
       data: updateObject
     };
     return axios(request)
@@ -131,7 +131,7 @@ export function deleteDonation(id) {
     dispatch(deleteDonationStart());
     const request = {
       method: "delete",
-      url: `http://localhost:3000/donation/delete/${id}`
+      url: `http://localhost:8000/donation/delete/${id}`
     };
     return axios(request)
       .then(() => dispatch(deleteDonationSuccess(id)))

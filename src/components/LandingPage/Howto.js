@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/howto.css";
+import "../../styles/howto.css";
 
 const Howto = () => {
   return (
