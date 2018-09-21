@@ -1,32 +1,78 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
+const validate = values => {
+  const errors = {};
+  if (!values.title) {
+    errors.title = "Required";
+  }
+  if (!values.charity) {
+    errors.charity = "Required";
+  }
+  if (!values.amount) {
+    errors.amount = "Required";
+  } else if (isNaN(Number(values.amount))) {
+    errors.amount = "Must be a Number";
+  }
+  if (!values.confNum) {
+    errors.confNum = "Required";
+  }
+  return errors;
+};
+
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+  <div className="form-group">
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} type={type} />{" "}
+      {touched && (error && <span>{error}</span>)}
+    </div>
+  </div>
+);
+
 let DonationUpdateForm = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
       <h4>Update your $$$</h4>
-      <div className="form-group">
-        <label htmlFor="title">Crisis Title</label>
-        <Field name="title" component="input" type="text" />
+      <Field
+        name="title"
+        type="text"
+        component={renderField}
+        label="Crisis Title"
+      />
+      <Field
+        name="charity"
+        type="text"
+        component={renderField}
+        label="Charity Name"
+      />
+      <Field
+        name="amount"
+        type="text"
+        component={renderField}
+        label="Donation Amount"
+      />
+      <Field
+        name="confNum"
+        type="text"
+        component={renderField}
+        label="Confirmation Number"
+      />
+      <div>
+        <button type="submit" disabled={submitting}>
+          submit
+        </button>
+        <button type="button" disabled={pristine || submitting} onClick={reset}>
+          reset
+        </button>
       </div>
-      <div className="form-group">
-        <label htmlFor="charity">Charity Name</label>
-        <Field name="charity" component="input" type="text" />
-      </div>
-      <div className="form-group">
-        <label htmlFor="amount">Donation Amount</label>
-        <Field name="amount" component="input" type="number" />
-      </div>
-      <div className="form-group">
-        <label htmlFor="confNum">Confirmation Number</label>
-        <Field name="confNum" component="input" type="text" />
-      </div>
-      <button type="submit">submit</button>
     </form>
   );
 };
 
-DonationUpdateForm = reduxForm({ form: "update" })(DonationUpdateForm);
+DonationUpdateForm = reduxForm({ form: "update", validate })(
+  DonationUpdateForm
+);
 
 export default DonationUpdateForm;

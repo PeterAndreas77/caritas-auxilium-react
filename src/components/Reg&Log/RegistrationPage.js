@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import RegistrationForm from "./RegistrationForm";
 import { userRegister } from "../../actions/UserActions";
-import "../../styles/register.js";
+import "../../styles/register.css";
 
 class RegistrationPage extends React.Component {
   constructor() {

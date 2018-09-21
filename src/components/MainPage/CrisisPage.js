@@ -25,8 +25,8 @@ class CrisisPage extends React.Component {
   }
 
   submit = values => {
-    // changethis
-    values.donor = "jojo";
+    const username = localStorage.getItem("loggedInUser");
+    values.donor = username;
     values.year = moment().format("YYYY");
     this.props.dispatch(createDonation(values));
   };

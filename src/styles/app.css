@@ -44,6 +44,12 @@ form {
   margin: 0 10%;
   box-shadow: 0 2px 4px #393e46;
 }
+form a {
+  color: #fff;
+}
+form a:hover {
+  color: #00adb5;
+}
 .form-group {
   margin: 0.8rem 0;
 }

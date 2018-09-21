@@ -17,11 +17,9 @@ export const fetchDonationFailure = error => ({
   payload: { error }
 });
 
-export function fetchDonation() {
+export function fetchDonation(username) {
   return dispatch => {
     dispatch(fetchDonationStart());
-    // changethis
-    const username = "jojo";
     const request = {
       method: "get",
       url: `http://localhost:8000/donation-all/${username}`
@@ -32,11 +30,9 @@ export function fetchDonation() {
   };
 }
 
-export function searchDonation(term) {
+export function searchDonation(username, term) {
   return dispatch => {
     dispatch(fetchDonationStart());
-    // changethis
-    const username = "jojo";
     const request = {
       method: "get",
       url: `http://localhost:8000/donation/search/${username}/${term}`

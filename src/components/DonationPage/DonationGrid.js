@@ -1,10 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchDonation } from "../../actions/DonationActions";
 
 class DonationGrid extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchDonation());
+    const username = localStorage.getItem("loggedInUser");
+    this.props.dispatch(fetchDonation(username));
   }
 
   render() {
@@ -53,6 +55,12 @@ class DonationGrid extends React.Component {
     return <div className="donation-container">{cards}</div>;
   }
 }
+
+DonationGrid.propTypes = {
+  items: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.object
+};
 
 const mapStateToProps = state => ({
   items: state.donationReducer.items,

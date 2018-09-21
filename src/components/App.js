@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
 import LandingPage from "./LandingPage/LandingPage";
-import RegistrationPage from "./RegistrationPage";
+import RegistrationPage from "./Reg&Log/RegistrationPage";
 import Login from "./login";
 import CrisisPage from "./MainPage/CrisisPage";
 import DonationPage from "./DonationPage/DonationPage";
@@ -26,15 +26,16 @@ class App extends React.Component {
     return (
       <Router>
         <div className="container">
-          <Header isLoggedIn={this.state.isLoggedIn} />
-          <Route path="/" exact={true} component={RegistrationPage} />
-          <Route path="/landing" component={LandingPage} />
+          <Header isLoggedIn={true} />
+          {/* <Header isLoggedIn={this.state.isLoggedIn} /> */}
+          <Route path="/" exact={true} component={CrisisPage} />
+          {/* <Route path="/landing" component={LandingPage} />
           <Route
             path="/register"
             render={props => (
               <RegistrationPage {...props} registered={this.loggedIn} />
             )}
-          />
+          /> */}
           <Route path="/login" component={Login} />
           <Route path="/crisis" component={CrisisPage} />
           <Route path="/donation" component={DonationPage} />

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import moment from "moment";
 import { fetchSingleCrisis } from "../../actions/CrisisActions";
@@ -14,7 +15,7 @@ class CrisisSingle extends React.Component {
     let title = "";
     let date = "";
     let body = "";
-    if (item.fields != undefined) {
+    if (item.fields !== undefined) {
       title = item.fields.title;
       date = moment(item.fields.date).format("L");
       body = item.fields.body;
@@ -44,6 +45,12 @@ class CrisisSingle extends React.Component {
     );
   }
 }
+
+CrisisSingle.propTypes = {
+  item: PropTypes.object,
+  loading: PropTypes.bool,
+  error: PropTypes.object
+};
 
 const mapStateToProps = state => ({
   item: state.singleCrisisReducer.item,

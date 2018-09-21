@@ -20,8 +20,7 @@ export const fetchReportFailure = error => ({
 export default function fetchReport(year) {
   return dispatch => {
     dispatch(fetchReportStart());
-    // changethis
-    const username = "jojo";
+    const username = localStorage.getItem("loggedInUser");
     const request = {
       method: "get",
       url: `http://localhost:8000/report/${username}/${year}`
