@@ -36,10 +36,13 @@ button:hover {
 }
 
 /* === FORM STYLING === */
-fieldset {
-  margin: 0 auto;
+form {
+  border: 2x solid #222831;
+  background-color: #fff;
+  border-radius: 10px;
   padding: 10px;
-  width: 70%;
+  margin: 0 10%;
+  box-shadow: 0 2px 4px #393e46;
 }
 .form-group {
   margin: 0.8rem 0;

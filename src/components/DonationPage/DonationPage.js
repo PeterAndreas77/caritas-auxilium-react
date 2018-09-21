@@ -16,7 +16,6 @@ class DonationPage extends React.Component {
   }
 
   submit = values => {
-    // changethis
     const id = this.state.donationID;
     values.id = id;
     this.props.dispatch(updateDonation(values, id));
