@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/login.css";
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <section className="login-page">
       <form className="login-form">
@@ -26,4 +26,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

@@ -1,7 +1,7 @@
 import React from "react";
-import OutsideNav from "./outsidenav";
-import InsideNav from "./insidenav";
-import "../styles/header.css";
+import OutsideNav from "./OutsideNav";
+import InsideNav from "./InsideNav";
+import "../../styles/header.css";
 
 const Header = props => {
   return props.isLoggedIn === true ? (

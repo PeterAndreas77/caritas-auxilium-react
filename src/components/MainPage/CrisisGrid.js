@@ -15,15 +15,14 @@ class CrisisGrid extends React.Component {
     const cards = items.map((item, index) => (
       <div className="crisis-card" key={index}>
         <p>{item.fields.title}</p>
-        <p
-          className="button"
+        <button
           onClick={() => {
             this.props.readMoreClicked();
             this.props.handleID(item.id);
           }}
         >
           read more
-        </p>
+        </button>
       </div>
     ));
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Header from "./header";
-import Footer from "./footer";
+import Header from "./Navigations/Header";
+import Footer from "./Navigations/Footer";
 import LandingPage from "./LandingPage/LandingPage";
 import RegistrationPage from "./Reg&Log/RegistrationPage";
-import Login from "./login";
+import LoginPage from "./Reg&Log/LoginPage";
 import CrisisPage from "./MainPage/CrisisPage";
 import DonationPage from "./DonationPage/DonationPage";
 import AccountPage from "./AccountPage/AccountPage";
@@ -26,17 +26,16 @@ class App extends React.Component {
     return (
       <Router>
         <div className="container">
-          <Header isLoggedIn={true} />
-          {/* <Header isLoggedIn={this.state.isLoggedIn} /> */}
-          <Route path="/" exact={true} component={CrisisPage} />
-          {/* <Route path="/landing" component={LandingPage} />
+          <Header isLoggedIn={this.state.isLoggedIn} />
+          <Route path="/" exact={true} component={LandingPage} />
+          <Route path="/landing" component={LandingPage} />
           <Route
             path="/register"
             render={props => (
               <RegistrationPage {...props} registered={this.loggedIn} />
             )}
-          /> */}
-          <Route path="/login" component={Login} />
+          />
+          <Route path="/login" component={LoginPage} />
           <Route path="/crisis" component={CrisisPage} />
           <Route path="/donation" component={DonationPage} />
           <Route path="/account" component={AccountPage} />

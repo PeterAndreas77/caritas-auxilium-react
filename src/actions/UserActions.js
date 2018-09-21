@@ -44,3 +44,64 @@ export const userLoginFailure = error => ({ type: USER_LOGIN_FAILURE, error });
 
 export const USER_LOGOUT = "USER_LOGOUT";
 export const userLogout = () => ({ type: USER_LOGOUT });
+
+export const FETCH_USER_START = "FETCH_USER_START";
+export const fetchUserStart = () => ({
+  type: FETCH_USER_START
+});
+
+export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
+export const fetchUserSuccess = user => ({
+  type: FETCH_USER_SUCCESS,
+  payload: { user }
+});
+
+export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
+export const fetchUserFailure = error => ({
+  type: FETCH_USER_FAILURE,
+  payload: { error }
+});
+
+export function fetchUser(username) {
+  return dispatch => {
+    dispatch(fetchUserStart());
+    const request = {
+      method: "get",
+      url: `http://localhost:8000/user/${username}`
+    };
+    return axios(request)
+      .then(res => dispatch(fetchUserSuccess(res.data)))
+      .catch(err => dispatch(fetchUserFailure(err)));
+  };
+}
+
+export const UPDATE_USER_START = "UPDATE_USER_START";
+export const updateUserStart = () => ({
+  type: UPDATE_USER_START
+});
+
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const updateUserSuccess = user => ({
+  type: UPDATE_USER_SUCCESS,
+  payload: { user }
+});
+
+export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
+export const updateUserFailure = error => ({
+  type: UPDATE_USER_FAILURE,
+  payload: { error }
+});
+
+export function updateUser(username, updateObject) {
+  return dispatch => {
+    dispatch(updateUserStart());
+    const request = {
+      method: "put",
+      url: `http://localhost:8000/user/update/${username}`,
+      data: updateObject
+    };
+    return axios(request)
+      .then(res => dispatch(updateUserSuccess(res.data)))
+      .catch(err => dispatch(updateUserFailure(err)));
+  };
+}

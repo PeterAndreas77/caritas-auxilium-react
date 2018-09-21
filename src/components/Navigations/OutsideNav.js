@@ -12,7 +12,7 @@ const OutsideNav = () => {
       <div className="outside-menu-content">
         <ul>
           <li>
-            <Link to="/home">
+            <Link to="/landing">
               <i className="fas fa-home" /> Home
             </Link>
           </li>
