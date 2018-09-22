@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import RegistrationForm from "./RegistrationForm";
 import { userRegister } from "../../actions/UserActions";
-import "../../styles/register.css";
 
 class RegistrationPage extends React.Component {
   constructor() {
@@ -16,7 +15,6 @@ class RegistrationPage extends React.Component {
       this.setState({ toMainPage: true });
       this.props.registered();
     });
-    localStorage.setItem("loggedInUser", user.username);
   };
 
   render() {

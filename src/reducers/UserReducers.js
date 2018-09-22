@@ -2,6 +2,10 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAILURE,
+  USER_LOGIN_REQUEST,
+  USER_LOGIN_SUCCESS,
+  USER_LOGIN_FAILURE,
+  USER_LOGOUT,
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
   FETCH_USER_FAILURE,
@@ -17,6 +21,27 @@ const registrationReducer = (state = {}, action) => {
     case USER_REGISTER_SUCCESS:
       return {};
     case USER_REGISTER_FAILURE:
+      return {};
+    default:
+      return state;
+  }
+};
+
+const initialLogin = {
+  authenticated: false,
+  user: "",
+  error: null
+};
+
+const loginReducer = (state = initialLogin, action) => {
+  switch (action.type) {
+    case USER_LOGIN_REQUEST:
+      return { ...state, loggingIn: true, user: action.user };
+    case USER_LOGIN_SUCCESS:
+      return { ...state, authenticated: true, user: action.user };
+    case USER_LOGIN_FAILURE:
+      return { ...state, authenticated: false, error: action.error };
+    case USER_LOGOUT:
       return {};
     default:
       return state;
@@ -48,4 +73,4 @@ const userReducer = (state = initialUser, action) => {
   }
 };
 
-export { registrationReducer, userReducer };
+export { registrationReducer, loginReducer, userReducer };

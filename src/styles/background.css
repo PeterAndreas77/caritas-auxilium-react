@@ -1,4 +1,6 @@
-.login-page {
+.register-page,
+.login-page,
+.not-found {
   text-align: center;
   padding-top: 2rem;
   width: 100%;
@@ -14,19 +16,10 @@
   background: -o-linear-gradient(right, #eeeeee, #00adb5);
   background: linear-gradient(270deg, #eeeeee, #00adb5);
   background-size: 400% 400%;
-  -webkit-animation: LoginBG 30s ease infinite;
-  animation: LoginBG 30s ease infinite;
+  -webkit-animation: GradientBG 30s ease infinite;
+  animation: GradientBG 30s ease infinite;
 }
-.login-btn {
-  font-size: 1.6rem;
-  padding: 0.5rem 1rem;
-}
-.login-form fieldset {
-  border-radius: 1rem;
-  border: 1px solid #393e46;
-  background-color: #fff;
-}
-@-webkit-keyframes LoginBG {
+@-webkit-keyframes GradientBG {
   0% {
     background-position: 0% 50%;
   }
@@ -37,7 +30,7 @@
     background-position: 0% 50%;
   }
 }
-@keyframes LoginBG {
+@keyframes RegBG {
   0% {
     background-position: 0% 50%;
   }

@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchRecentCrisis } from "../../actions/CrisisActions";
-import "../../styles/container.css";
-import "../../styles/card.css";
 
 class CrisisGrid extends React.Component {
   componentDidMount() {

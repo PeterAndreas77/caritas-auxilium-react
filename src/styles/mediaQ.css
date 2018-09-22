@@ -1,0 +1,14 @@
+@media screen and (min-width: 768px) {
+  .hero-img,
+  .feature-img,
+  .howto-img {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .hero-img,
+  .feature-img,
+  .howto-img {
+    width: 25%;
+  }
+}

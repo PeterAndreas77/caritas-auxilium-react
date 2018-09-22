@@ -6,7 +6,6 @@ import CrisisSingle from "./CrisisSingle";
 import CrisisDonateForm from "./CrisisDonateForm";
 import moment from "moment";
 import { createDonation } from "../../actions/DonationActions";
-import "../../styles/main.css";
 
 class CrisisPage extends React.Component {
   constructor(props) {

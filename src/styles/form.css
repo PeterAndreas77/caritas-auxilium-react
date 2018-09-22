@@ -1,0 +1,20 @@
+form {
+  border: 2x solid #222831;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0 10%;
+  box-shadow: 0 2px 4px #393e46;
+}
+form a {
+  color: #fff;
+}
+form a:hover {
+  color: #00adb5;
+}
+.form-group {
+  margin: 1rem 0;
+}
+input {
+  height: 1.5rem;
+}

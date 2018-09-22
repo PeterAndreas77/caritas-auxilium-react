@@ -28,7 +28,10 @@ export function userRegister(user) {
       data: user
     };
     return axios(userRequest)
-      .then(user => dispatch(userRegisterSuccess(user)))
+      .then(user => {
+        dispatch(userRegisterSuccess(user));
+        localStorage.setItem("loggedInUser", user.username);
+      })
       .catch(err => dispatch(userRegisterFailure(err)));
   };
 }
@@ -44,6 +47,23 @@ export const userLoginFailure = error => ({ type: USER_LOGIN_FAILURE, error });
 
 export const USER_LOGOUT = "USER_LOGOUT";
 export const userLogout = () => ({ type: USER_LOGOUT });
+
+export function userLogin(user) {
+  return dispatch => {
+    dispatch(userLoginRequest(user));
+    const userRequest = {
+      url: `${API_URL}/users/login`,
+      method: "post",
+      data: user
+    };
+    return axios(userRequest)
+      .then(user => {
+        dispatch(userLoginSuccess(user));
+        localStorage.setItem("loggedInUser", user.username);
+      })
+      .catch(err => dispatch(userLoginFailure(err)));
+  };
+}
 
 export const FETCH_USER_START = "FETCH_USER_START";
 export const fetchUserStart = () => ({
@@ -67,7 +87,7 @@ export function fetchUser(username) {
     dispatch(fetchUserStart());
     const request = {
       method: "get",
-      url: `http://localhost:8000/user/${username}`
+      url: `http://localhost:8000/users/${username}`
     };
     return axios(request)
       .then(res => dispatch(fetchUserSuccess(res.data)))
@@ -97,7 +117,7 @@ export function updateUser(username, updateObject) {
     dispatch(updateUserStart());
     const request = {
       method: "put",
-      url: `http://localhost:8000/user/update/${username}`,
+      url: `http://localhost:8000/users/update/${username}`,
       data: updateObject
     };
     return axios(request)
