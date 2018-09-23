@@ -24,6 +24,7 @@ class DonationPage extends React.Component {
   showGrid() {
     this.setState({ gridShown: true, updateFormShown: false });
   }
+
   showUpdateForm() {
     this.setState({ gridShown: false, updateFormShown: true });
   }
