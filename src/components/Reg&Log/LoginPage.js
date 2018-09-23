@@ -11,8 +11,8 @@ class LoginPage extends React.Component {
   }
 
   submit = user => {
-    const { authenticated } = this.props;
     this.props.dispatch(userLogin(user)).then(() => {
+      const { authenticated } = this.props;
       if (authenticated) {
         this.setState({ toMainPage: true });
         this.props.logged();

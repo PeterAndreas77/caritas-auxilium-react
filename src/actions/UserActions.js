@@ -30,7 +30,7 @@ export function userRegister(user) {
     return axios(userRequest)
       .then(user => {
         dispatch(userRegisterSuccess(user));
-        localStorage.setItem("loggedInUser", user.username);
+        localStorage.setItem("loggedInUser", user.data.username);
       })
       .catch(err => dispatch(userRegisterFailure(err)));
   };
@@ -40,7 +40,7 @@ export const USER_LOGIN_REQUEST = "USER_LOGIN_REQUEST";
 export const userLoginRequest = user => ({ type: USER_LOGIN_REQUEST, user });
 
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
-export const userLoginSuccess = user => ({ type: USER_LOGIN_REQUEST, user });
+export const userLoginSuccess = user => ({ type: USER_LOGIN_SUCCESS, user });
 
 export const USER_LOGIN_FAILURE = "USER_LOGIN_FAILURE";
 export const userLoginFailure = error => ({ type: USER_LOGIN_FAILURE, error });
@@ -59,7 +59,7 @@ export function userLogin(user) {
     return axios(userRequest)
       .then(user => {
         dispatch(userLoginSuccess(user));
-        localStorage.setItem("loggedInUser", user.username);
+        localStorage.setItem("loggedInUser", user.data.username);
       })
       .catch(err => dispatch(userLoginFailure(err)));
   };

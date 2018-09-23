@@ -4,6 +4,7 @@ import CrisisGrid from "./CrisisGrid";
 import CrisisSearch from "./CrisisSearch";
 import CrisisSingle from "./CrisisSingle";
 import CrisisDonateForm from "./CrisisDonateForm";
+import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { createDonation } from "../../actions/DonationActions";
 
@@ -88,11 +89,14 @@ class CrisisPage extends React.Component {
       return (
         <section className="recent-crisis">
           <CrisisSearch searchClicked={this.showGrid} />
-          <CrisisDonateForm onSubmit={this.submit} />
+          <CrisisDonateForm
+            onSubmit={this.submit}
+            cancelClicked={this.showGrid}
+          />
         </section>
       );
     }
   }
 }
 
-export default connect()(CrisisPage);
+export default withRouter(connect()(CrisisPage));

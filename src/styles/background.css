@@ -1,8 +1,12 @@
 .register-page,
 .login-page,
-.not-found {
+.not-found,
+.recent-crisis,
+.my-account,
+.my-report,
+.my-donation {
   text-align: center;
-  padding-top: 2rem;
+  padding: 1rem 0.5rem;
   width: 100%;
   height: 100%;
   background: -webkit-gradient(
@@ -30,7 +34,7 @@
     background-position: 0% 50%;
   }
 }
-@keyframes RegBG {
+@keyframes GradientBG {
   0% {
     background-position: 0% 50%;
   }

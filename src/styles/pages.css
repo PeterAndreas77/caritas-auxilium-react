@@ -1,13 +1,11 @@
 /* === RECENT CRISIS PAGE STYLE === */
 .recent-crisis {
   text-align: center;
-  margin: 1rem 0.5rem;
 }
 
 /* === MY CRISIS PAGE STYLE === */
 .my-crisis {
   text-align: center;
-  margin: 1rem 0.5rem;
 }
 div .crisis-date {
   text-align: center;
@@ -19,13 +17,11 @@ div .crisis-date {
 /* === MY DONATION PAGE STYLE === */
 .my-donation {
   text-align: center;
-  margin: 1rem 0.5rem;
 }
 
 /* === MY ACCOUNT PAGE STYLE === */
 .my-account {
   text-align: center;
-  margin: 1rem 0.5rem;
 }
 .my-account p {
   margin-bottom: 1rem;
@@ -34,7 +30,6 @@ div .crisis-date {
 /* === MY REPORT PAGE STYLE === */
 .my-report {
   text-align: center;
-  margin: 1rem 0.5rem;
 }
 #myChart {
   width: 98% !important;

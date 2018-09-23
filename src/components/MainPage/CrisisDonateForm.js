@@ -71,6 +71,9 @@ let CrisisDonateForm = props => {
         <button type="button" disabled={pristine || submitting} onClick={reset}>
           reset
         </button>
+        <button type="button" onClick={this.props.cancelClicked}>
+          cancel
+        </button>
       </div>
     </form>
   );

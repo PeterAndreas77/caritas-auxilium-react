@@ -64,7 +64,7 @@ let RegistrationForm = props => {
       />
       <Field
         name="password"
-        type="text"
+        type="password"
         component={renderField}
         label="Password"
       />
