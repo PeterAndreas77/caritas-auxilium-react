@@ -5,10 +5,7 @@ import RegistrationForm from "./RegistrationForm";
 import { userRegister } from "../../actions/UserActions";
 
 class RegistrationPage extends React.Component {
-  constructor() {
-    super();
-    this.state = { toMainPage: false };
-  }
+  state = { toMainPage: false };
 
   submit = user => {
     this.props.dispatch(userRegister(user)).then(() => {
@@ -24,7 +21,7 @@ class RegistrationPage extends React.Component {
 
     return (
       <section className="register-page">
-        <RegistrationForm onSubmit={this.submit} />
+        <RegistrationForm onSubmit={user => this.submit(user)} />
       </section>
     );
   }

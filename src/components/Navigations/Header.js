@@ -4,7 +4,6 @@ import InsideNav from "./InsideNav";
 import "../../styles/header.css";
 
 const Header = props => {
-  console.log(props);
   return props.isLoggedIn === true ? (
     <header className="header" role="banner">
       <InsideNav />

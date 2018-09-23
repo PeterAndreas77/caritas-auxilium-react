@@ -1,84 +1,85 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
 
-const validate = values => {
-  const errors = {};
-  if (!values.title) {
-    errors.title = "Required";
-  }
-  if (!values.charity) {
-    errors.charity = "Required";
-  }
-  if (!values.amount) {
-    errors.amount = "Required";
-  } else if (isNaN(Number(values.amount))) {
-    errors.amount = "Must be a Number";
-  }
-  if (!values.confNum) {
-    errors.confNum = "Required";
-  }
-  return errors;
-};
+class CrisisDonateForm extends React.Component {
+  state = {
+    title: "",
+    charity: "",
+    amount: "",
+    confNum: ""
+  };
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div className="form-group">
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />{" "}
-      {touched && (error && <span>{error}</span>)}
-    </div>
-  </div>
-);
+  change = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-let CrisisDonateForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
-  return (
-    <form onSubmit={handleSubmit}>
-      <h4>Donate your $$$</h4>
-      <p>
-        Unfortunately, there are no API for charity available. So, a good old
-        fashioned googling is the way to donate. When you are done, go back here
-        and keep record of it.
-      </p>
-      <Field
-        name="title"
-        type="text"
-        component={renderField}
-        label="Crisis Title"
-      />
-      <Field
-        name="charity"
-        type="text"
-        component={renderField}
-        label="Charity Name"
-      />
-      <Field
-        name="amount"
-        type="text"
-        component={renderField}
-        label="Donation Amount"
-      />
-      <Field
-        name="confNum"
-        type="text"
-        component={renderField}
-        label="Confirmation Number"
-      />
-      <div>
-        <button type="submit" disabled={submitting}>
-          submit
-        </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
-          reset
-        </button>
-        <button type="button" onClick={this.props.cancelClicked}>
-          cancel
-        </button>
-      </div>
-    </form>
-  );
-};
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+    this.reset();
+  };
 
-CrisisDonateForm = reduxForm({ form: "donate", validate })(CrisisDonateForm);
+  reset = () => {
+    this.setState({
+      title: "",
+      charity: "",
+      amount: "",
+      confNum: ""
+    });
+  };
+
+  render() {
+    return (
+      <form>
+        <h4>Donate your $$$</h4>
+        <p>
+          Unfortunately, there are no API for charity available. So, a good old
+          fashioned googling is the way to donate. When you are done, go back
+          here and keep record of it.
+        </p>
+        <div className="form-group">
+          <label htmlFor="title">Crisis Title: </label>
+          <input
+            name="title"
+            value={this.state.title}
+            onChange={e => this.change(e)}
+            placeholder="Crisis Title"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="charity">Charity Name: </label>
+          <input
+            name="charity"
+            value={this.state.charity}
+            onChange={e => this.change(e)}
+            placeholder="charity Name"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="amount">Donation Amount: </label>
+          <input
+            name="amount"
+            type="number"
+            value={this.state.amount}
+            onChange={e => this.change(e)}
+            placeholder="Donation Amount"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="confNum">Confirmation Number: </label>
+          <input
+            name="confNum"
+            value={this.state.confNum}
+            onChange={e => this.change(e)}
+            placeholder="Confirmation Number"
+          />
+        </div>
+        <div>
+          <button onClick={e => this.onSubmit(e)}>submit</button>
+          <button onClick={this.props.cancelClicked}>cancel</button>
+        </div>
+      </form>
+    );
+  }
+}
 
 export default CrisisDonateForm;

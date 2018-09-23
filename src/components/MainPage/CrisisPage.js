@@ -1,11 +1,11 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+import moment from "moment";
 import { connect } from "react-redux";
 import CrisisGrid from "./CrisisGrid";
 import CrisisSearch from "./CrisisSearch";
 import CrisisSingle from "./CrisisSingle";
 import CrisisDonateForm from "./CrisisDonateForm";
-import { withRouter } from "react-router-dom";
-import moment from "moment";
 import { createDonation } from "../../actions/DonationActions";
 
 class CrisisPage extends React.Component {
@@ -29,6 +29,7 @@ class CrisisPage extends React.Component {
     values.donor = username;
     values.year = moment().format("YYYY");
     this.props.dispatch(createDonation(values));
+    this.props.history.push("/donation");
   };
 
   showGrid() {
@@ -90,7 +91,7 @@ class CrisisPage extends React.Component {
         <section className="recent-crisis">
           <CrisisSearch searchClicked={this.showGrid} />
           <CrisisDonateForm
-            onSubmit={this.submit}
+            onSubmit={values => this.submit(values)}
             cancelClicked={this.showGrid}
           />
         </section>

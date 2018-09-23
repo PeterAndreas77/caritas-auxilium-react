@@ -5,10 +5,7 @@ import LoginForm from "./LoginForm";
 import { userLogin } from "../../actions/UserActions";
 
 class LoginPage extends React.Component {
-  constructor() {
-    super();
-    this.state = { toMainPage: false };
-  }
+  state = { toMainPage: false };
 
   submit = user => {
     this.props.dispatch(userLogin(user)).then(() => {
@@ -32,7 +29,7 @@ class LoginPage extends React.Component {
 
     return (
       <section className="login-page">
-        <LoginForm onSubmit={this.submit} />
+        <LoginForm onSubmit={user => this.submit(user)} />
       </section>
     );
   }

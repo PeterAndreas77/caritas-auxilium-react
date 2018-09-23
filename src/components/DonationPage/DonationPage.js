@@ -18,7 +18,7 @@ class DonationPage extends React.Component {
   submit = values => {
     const id = this.state.donationID;
     values.id = id;
-    this.props.dispatch(updateDonation(values, id));
+    this.props.dispatch(updateDonation(values, id)).then(this.showGrid());
   };
 
   showGrid() {
@@ -55,7 +55,7 @@ class DonationPage extends React.Component {
         <section className="my-donation">
           <DonationSearch searchClicked={this.showGrid} />
           <DonationUpdateForm
-            onSubmit={this.submit}
+            onSubmit={values => this.submit(values)}
             cancelClicked={this.showGrid}
           />
         </section>
