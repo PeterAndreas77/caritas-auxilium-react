@@ -11,6 +11,7 @@ import AccountPage from "./AccountPage/AccountPage";
 import ReportPage from "./ReportPage/ReportPage";
 import NotFound from "./NotFound";
 import Authenticate from "./Reg&Log/Authenticate";
+import LogoutPage from "./Reg&Log/LogoutPage";
 import "../styles/background.css";
 import "../styles/button.css";
 import "../styles/card.css";
@@ -24,10 +25,15 @@ class App extends React.Component {
     super();
     this.state = { isLoggedIn: false };
     this.loggedIn = this.loggedIn.bind(this);
+    this.loggedOut = this.loggedOut.bind(this);
   }
 
   loggedIn() {
     this.setState({ isLoggedIn: true });
+  }
+
+  loggedOut() {
+    this.setState({ isLoggedIn: false });
   }
 
   render() {
@@ -52,6 +58,12 @@ class App extends React.Component {
             <Route path="/donation" component={Authenticate(DonationPage)} />
             <Route path="/account" component={Authenticate(AccountPage)} />
             <Route path="/report" component={Authenticate(ReportPage)} />
+            <Route
+              path="/logout"
+              render={props => (
+                <LogoutPage {...props} logOut={this.loggedOut} />
+              )}
+            />
             <Route component={NotFound} />
           </Switch>
           <Footer />

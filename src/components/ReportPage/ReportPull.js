@@ -11,7 +11,6 @@ class ReportPull extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const year = this.textInput.value.trim();
-    console.log(typeof year);
     this.props.fetchReport(year);
   }
 

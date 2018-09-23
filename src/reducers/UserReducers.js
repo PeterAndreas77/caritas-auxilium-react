@@ -42,7 +42,7 @@ const loginReducer = (state = initialLogin, action) => {
     case USER_LOGIN_FAILURE:
       return { ...state, authenticated: false, error: action.error };
     case USER_LOGOUT:
-      return {};
+      return { ...state, authenticated: false };
     default:
       return state;
   }
