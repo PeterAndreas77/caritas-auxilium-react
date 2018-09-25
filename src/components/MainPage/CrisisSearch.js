@@ -17,6 +17,7 @@ class CrisisSearch extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} className="form-group">
+        <label>Search recent crisis</label>
         <input type="text" ref={input => (this.textInput = input)} />
         <button type="submit" onClick={this.props.searchClicked}>
           search

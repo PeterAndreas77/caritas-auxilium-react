@@ -21,6 +21,9 @@ class RegistrationForm extends React.Component {
 
   validate = () => {
     let isError = false;
+    // eslint-disable-next-line
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const passwordRegex = /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/;
     const errors = {};
     if (this.state.firstname.length === 0) {
       isError = true;
@@ -37,7 +40,7 @@ class RegistrationForm extends React.Component {
     if (this.state.email.length === 0) {
       isError = true;
       errors.emailError = "Email is required";
-    } else if (!this.state.email.includes("@")) {
+    } else if (!emailRegex.test(this.state.email)) {
       isError = true;
       errors.emailError = "Please enter a valid email";
     } else {
@@ -52,9 +55,9 @@ class RegistrationForm extends React.Component {
     if (this.state.password.length === 0) {
       isError = true;
       errors.passwordError = "Password is required";
-    } else if (this.state.password.length < 8) {
+    } else if (!passwordRegex.test(this.state.password)) {
       isError = true;
-      errors.passwordError = "Password must be at least 8 characters";
+      errors.passwordError = "Password must be at least 6 characters";
     } else {
       errors.passwordError = "";
     }
@@ -91,17 +94,15 @@ class RegistrationForm extends React.Component {
   render() {
     return (
       <form>
-        <h2>Fill out this form to register</h2>
+        <h3>Fill out this form to register</h3>
         <div className="form-group">
           <label htmlFor="firstname">First Name: </label>
-          <div>
-            <input
-              name="firstname"
-              value={this.state.firstname}
-              onChange={e => this.change(e)}
-              placeholder="First Name"
-            />
-          </div>
+          <input
+            name="firstname"
+            value={this.state.firstname}
+            onChange={e => this.change(e)}
+            placeholder="First Name"
+          />
           <p className="error-text">{this.state.firstnameError}</p>
         </div>
         <div className="form-group">
@@ -145,6 +146,10 @@ class RegistrationForm extends React.Component {
             placeholder="Password"
           />
           <p className="error-text">{this.state.passwordError}</p>
+          <p>
+            Password must contain at least one letter, one number, and be longer
+            than 6 characters
+          </p>
         </div>
         <div>
           <button onClick={e => this.onSubmit(e)}>submit</button>

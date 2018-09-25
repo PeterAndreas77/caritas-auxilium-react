@@ -38,7 +38,10 @@ export function searchDonation(username, term) {
       url: `http://localhost:8000/donation/search/${username}/${term}`
     };
     return axios(request)
-      .then(res => dispatch(fetchDonationSuccess(res.data)))
+      .then(res => {
+        console.log(res.data);
+        dispatch(fetchDonationSuccess(res.data));
+      })
       .catch(err => dispatch(fetchDonationFailure(err)));
   };
 }
