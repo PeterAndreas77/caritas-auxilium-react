@@ -26,23 +26,27 @@ class LoginForm extends React.Component {
         <h2>Enter your username and password</h2>
         <div className="form-group">
           <label htmlFor="username">Username: </label>
-          <input
-            name="username"
-            value={this.state.username}
-            onChange={e => this.change(e)}
-            placeholder="Username"
-          />
+          <div>
+            <input
+              name="username"
+              value={this.state.username}
+              onChange={e => this.change(e)}
+              placeholder="Username"
+            />
+          </div>
         </div>
         <p>test username: 'jojo'</p>
         <div className="form-group">
           <label htmlFor="password">Password: </label>
-          <input
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={e => this.change(e)}
-            placeholder="Password"
-          />
+          <div>
+            <input
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={e => this.change(e)}
+              placeholder="Password"
+            />
+          </div>
         </div>
         <p>test password: 'jojo123'</p>
         <div>
