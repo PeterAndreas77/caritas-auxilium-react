@@ -4,8 +4,8 @@ button {
   color: #fff;
   background-color: #00adb5;
   font-size: 1rem;
-  padding: 0.25rem 0.1rem;
-  border: 2px solid #00adb5;
+  padding: 0.5rem 0.3rem;
+  border: none;
   -webkit-box-shadow: 0 2px 4px #393e46;
   box-shadow: 0 2px 4px #393e46;
   border-radius: 5px;
@@ -15,6 +15,7 @@ button:hover {
   cursor: pointer;
   color: #00adb5;
   background-color: #fff;
+  border: 1px solid #00adb5;
   -webkit-box-shadow: none;
   box-shadow: none;
 }

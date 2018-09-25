@@ -23,6 +23,7 @@
   -webkit-animation: GradientBG 30s ease infinite;
   animation: GradientBG 30s ease infinite;
 }
+
 @-webkit-keyframes GradientBG {
   0% {
     background-position: 0% 50%;

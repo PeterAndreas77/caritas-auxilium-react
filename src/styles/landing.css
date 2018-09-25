@@ -13,18 +13,17 @@
 /*==== HERO SECTION ====*/
 #hero-page {
   height: 96vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.85),
-      rgba(255, 255, 255, 0.85)
-    ),
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     url(https://images.unsplash.com/photo-1415304282915-d001ddefc7d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=42a14cb2320961b671d5b8b61f7f3522&auto=format&fit=crop&w=1350&q=80)
       no-repeat center;
   background-size: cover;
+  color: #fff;
 }
 .hero-img {
   width: 75%;
 }
 #hero-page p {
+  font-size: 1.3rem;
   margin-bottom: 40px;
 }
 .button {
@@ -44,6 +43,7 @@
   cursor: pointer;
   color: #00adb5;
   background-color: #fff;
+  border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }

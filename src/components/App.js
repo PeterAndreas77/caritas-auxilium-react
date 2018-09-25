@@ -12,6 +12,7 @@ import ReportPage from "./ReportPage/ReportPage";
 import NotFound from "./NotFound";
 import Authenticate from "./Reg&Log/Authenticate";
 import LogoutPage from "./Reg&Log/LogoutPage";
+import "../styles/animation.css";
 import "../styles/background.css";
 import "../styles/button.css";
 import "../styles/card.css";
