@@ -125,7 +125,9 @@ class CrisisDonateForm extends React.Component {
           <p className="error-text">{this.state.confNumError}</p>
         </div>
         <div>
-          <button onClick={e => this.onSubmit(e)}>submit</button>
+          <button className="donate-btn" onClick={e => this.onSubmit(e)}>
+            submit
+          </button>
           <button onClick={this.props.cancelClicked}>cancel</button>
         </div>
       </form>

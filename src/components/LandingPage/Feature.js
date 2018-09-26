@@ -1,6 +1,6 @@
 import React from "react";
 
-const Feature = () => {
+export const Feature = () => {
   return (
     <section id="feature-page">
       <hr />

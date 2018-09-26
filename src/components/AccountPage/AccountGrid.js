@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchUser } from "../../actions/UserActions";
 
-class AccountGrid extends React.Component {
+export class AccountGrid extends React.Component {
   componentDidMount() {
     const username = localStorage.getItem("loggedInUser");
     this.props.dispatch(fetchUser(username));

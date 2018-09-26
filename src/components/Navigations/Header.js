@@ -3,7 +3,7 @@ import OutsideNav from "./OutsideNav";
 import InsideNav from "./InsideNav";
 import "../../styles/header.css";
 
-const Header = props => {
+export const Header = props => {
   return props.isLoggedIn === true ? (
     <header className="header" role="banner">
       <InsideNav />

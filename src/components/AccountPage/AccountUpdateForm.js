@@ -1,61 +1,112 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
 
-const validate = values => {
-  const errors = {};
-  if (!values.firstname) {
-    errors.firstname = "Required";
+class AccountUpdateForm extends React.Component {
+  state = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    firstnameError: "",
+    lastnameError: "",
+    emailError: ""
+  };
+
+  change = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  validate = () => {
+    let isError = false;
+    // eslint-disable-next-line
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const errors = {};
+    if (this.state.firstname.length === 0) {
+      isError = true;
+      errors.firstnameError = "First name is required";
+    } else {
+      errors.firstnameError = "";
+    }
+    if (this.state.lastname.length === 0) {
+      isError = true;
+      errors.lastnameError = "Last name is required";
+    } else {
+      errors.lastnameError = "";
+    }
+    if (this.state.email.length === 0) {
+      isError = true;
+      errors.emailError = "Email is required";
+    } else if (!emailRegex.test(this.state.email)) {
+      isError = true;
+      errors.emailError = "Please enter a valid email";
+    } else {
+      errors.emailError = "";
+    }
+    if (isError) {
+      this.setState({ ...this.state, ...errors });
+    }
+    return isError;
+  };
+
+  reset = () => {
+    this.setState({
+      firstname: "",
+      lastname: "",
+      email: "",
+      firstnameError: "",
+      lastnameError: "",
+      emailError: ""
+    });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const err = this.validate();
+    if (!err) {
+      this.props.onSubmit(this.state);
+      this.reset();
+    }
+  };
+
+  render() {
+    return (
+      <form className="AccountUpdateForm">
+        <h2>Update Your Account</h2>
+        <div className="form-group">
+          <label htmlFor="firstname">First Name: </label>
+          <input
+            name="firstname"
+            value={this.state.firstname}
+            onChange={e => this.change(e)}
+            placeholder="First Name"
+          />
+          <p className="error-text">{this.state.firstnameError}</p>
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastname">Last Name: </label>
+          <input
+            name="lastname"
+            value={this.state.lastname}
+            onChange={e => this.change(e)}
+            placeholder="Last Name"
+          />
+          <p className="error-text">{this.state.lastnameError}</p>
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email: </label>
+          <input
+            name="email"
+            type="email"
+            value={this.state.email}
+            onChange={e => this.change(e)}
+            placeholder="Email"
+          />
+          <p className="error-text">{this.state.emailError}</p>
+        </div>
+        <div>
+          <button onClick={e => this.onSubmit(e)}>submit</button>
+        </div>
+      </form>
+    );
   }
-  if (!values.lastname) {
-    errors.lastname = "Required";
-  }
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-};
-
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div className="form-group">
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />{" "}
-      {touched && (error && <span>{error}</span>)}
-    </div>
-  </div>
-);
-
-let AccountUpdateForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
-  return (
-    <form onSubmit={handleSubmit}>
-      <h2>Update Your Account</h2>
-      <Field
-        name="firstname"
-        type="text"
-        component={renderField}
-        label="First Name"
-      />
-      <Field
-        name="lastname"
-        type="text"
-        component={renderField}
-        label="Last Name"
-      />
-      <Field name="email" type="email" component={renderField} label="Email" />
-      <div>
-        <button type="submit" disabled={submitting}>
-          update
-        </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
-          reset
-        </button>
-      </div>
-    </form>
-  );
-};
-
-AccountUpdateForm = reduxForm({ form: "AccUpd", validate })(AccountUpdateForm);
+}
 
 export default AccountUpdateForm;

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import fetchReport from "../../actions/ReportActions";
 
-class ReportPull extends React.Component {
+export class ReportPull extends React.Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);

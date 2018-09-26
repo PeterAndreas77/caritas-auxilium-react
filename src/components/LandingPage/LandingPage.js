@@ -4,7 +4,7 @@ import Feature from "./Feature";
 import Howto from "./Howto";
 import "../../styles/landing.css";
 
-const LandingPage = () => {
+export const LandingPage = () => {
   return (
     <main className="content">
       <Hero />

@@ -8,7 +8,7 @@ import CrisisSingle from "./CrisisSingle";
 import CrisisDonateForm from "./CrisisDonateForm";
 import { createDonation } from "../../actions/DonationActions";
 
-class CrisisPage extends React.Component {
+export class CrisisPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

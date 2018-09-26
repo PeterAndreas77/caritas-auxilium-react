@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
 
-const OutsideNav = () => {
+export const OutsideNav = () => {
   return (
     <nav className="outside-collapsible">
       <input type="checkbox" id="outside-menu" />

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { searchDonation } from "../../actions/DonationActions";
 
-class DonationSearch extends React.Component {
+export class DonationSearch extends React.Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);

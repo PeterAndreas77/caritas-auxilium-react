@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
 
-const InsideNav = () => {
+export const InsideNav = () => {
   return (
     <nav className="inside-collapsible">
       <input type="checkbox" id="inside-menu" />

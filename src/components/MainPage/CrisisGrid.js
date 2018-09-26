@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchRecentCrisis } from "../../actions/CrisisActions";
 
-class CrisisGrid extends React.Component {
+export class CrisisGrid extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchRecentCrisis());
   }

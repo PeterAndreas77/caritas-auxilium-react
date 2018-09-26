@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Bar } from "react-chartjs-2";
 import moment from "moment";
 
-class ReportChart extends React.Component {
+export class ReportChart extends React.Component {
   render() {
     const { item, loading, error } = this.props;
     let result = item;

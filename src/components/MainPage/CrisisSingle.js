@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { fetchSingleCrisis } from "../../actions/CrisisActions";
 
-class CrisisSingle extends React.Component {
+export class CrisisSingle extends React.Component {
   componentDidMount() {
     const id = this.props.reportID;
     this.props.dispatch(fetchSingleCrisis(id));

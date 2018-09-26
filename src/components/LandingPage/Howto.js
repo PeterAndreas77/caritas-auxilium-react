@@ -1,6 +1,6 @@
 import React from "react";
 
-const Howto = () => {
+export const Howto = () => {
   return (
     <section id="howto-page">
       <hr />

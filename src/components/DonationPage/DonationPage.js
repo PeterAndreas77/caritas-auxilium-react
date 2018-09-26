@@ -5,7 +5,7 @@ import DonationGrid from "./DonationGrid";
 import DonationUpdateForm from "./DonationUpdateForm";
 import { updateDonation, deleteDonation } from "../../actions/DonationActions";
 
-class DonationPage extends React.Component {
+export class DonationPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { gridShown: true, updateFormShown: false, donationID: "" };

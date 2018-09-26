@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
   state = {
@@ -12,6 +11,7 @@ class LoginForm extends React.Component {
   change = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   validate = () => {
     let isError = false;
     const errors = {};
@@ -84,9 +84,6 @@ class LoginForm extends React.Component {
         </div>
         <div>
           <button onClick={e => this.onSubmit(e)}>submit</button>
-          <Link to="/landing">
-            <button>cancel</button>
-          </Link>
         </div>
       </form>
     );

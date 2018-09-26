@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import RegistrationForm from "./RegistrationForm";
 import { userRegister } from "../../actions/UserActions";
 
-class RegistrationPage extends React.Component {
+export class RegistrationPage extends React.Component {
   state = { toMainPage: false };
 
   submit = user => {

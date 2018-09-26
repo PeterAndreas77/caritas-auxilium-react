@@ -4,7 +4,7 @@ import AccountGrid from "./AccountGrid";
 import AccountUpdateForm from "./AccountUpdateForm";
 import { updateUser } from "../../actions/UserActions";
 
-class AccountPage extends React.Component {
+export class AccountPage extends React.Component {
   constructor() {
     super();
     this.state = { gridShown: true, updateFormShown: false };
