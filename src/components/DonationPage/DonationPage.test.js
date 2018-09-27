@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import { DonationPage } from "./DonationPage";
 
 describe("<DonationPage />", () => {
-  it("Renders without crashing", () => {
+  it("Renders without exploding", () => {
     shallow(<DonationPage />);
   });
 });

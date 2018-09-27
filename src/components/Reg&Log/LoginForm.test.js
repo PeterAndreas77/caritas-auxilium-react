@@ -3,7 +3,7 @@ import { shallow, mount } from "enzyme";
 import LoginForm from "./LoginForm";
 
 describe("<LoginForm />", () => {
-  it("Renders without crashing", () => {
+  it("Renders without exploding", () => {
     shallow(<LoginForm />);
   });
 

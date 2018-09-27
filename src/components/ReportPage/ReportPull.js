@@ -5,25 +5,31 @@ import fetchReport from "../../actions/ReportActions";
 export class ReportPull extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { year: "" };
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  change = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   onSubmit(e) {
     e.preventDefault();
-    const year = this.textInput.value.trim();
+    const year = this.state.year.trim();
     this.props.fetchReport(year);
   }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} className="form-group">
-        <label htmlFor="reportYear">Pull Report by Year</label>
+      <form onSubmit={this.onSubmit}>
+        <label htmlFor="year">Pull Report by Year</label>
         <input
           type="number"
-          name="reportYear"
-          ref={input => (this.textInput = input)}
+          name="year"
+          value={this.state.year}
+          onChange={e => this.change(e)}
         />
-        <button type="submit">pull</button>
+        <button>pull</button>
       </form>
     );
   }
