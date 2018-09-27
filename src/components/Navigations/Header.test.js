@@ -7,6 +7,7 @@ describe("<Header />", () => {
   it("Renders without exploding", () => {
     shallow(<Header />);
   });
+
   it("Renders header flawlesssly", () => {
     const wrapper = shallow(<Header />);
     expect(wrapper.exists(".header")).to.equal(true);

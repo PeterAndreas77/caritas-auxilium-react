@@ -5,23 +5,31 @@ import { searchRecentCrisis } from "../../actions/CrisisActions";
 export class CrisisSearch extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { term: "" };
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  change = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   onSubmit(e) {
     e.preventDefault();
-    const term = this.textInput.value.trim();
+    const term = this.state.term.trim();
     this.props.searchRecentCrisis(term);
   }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} className="form-group">
-        <label>Search recent crisis</label>
-        <input type="text" ref={input => (this.textInput = input)} />
-        <button type="submit" onClick={this.props.searchClicked}>
-          search
-        </button>
+      <form onSubmit={this.onSubmit}>
+        <label htmlFor="term">Search recent crisis</label>
+        <input
+          type="text"
+          name="term"
+          value={this.state.year}
+          onChange={e => this.change(e)}
+        />
+        <button onClick={this.props.searchClicked}>search</button>
       </form>
     );
   }

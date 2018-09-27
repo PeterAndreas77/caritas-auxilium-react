@@ -7,6 +7,7 @@ describe("<Feature />", () => {
   it("Renders without exploding", () => {
     shallow(<Feature />);
   });
+
   it("Renders the features flawlessly", () => {
     const wrapper = shallow(<Feature />);
     expect(wrapper.exists(".feature-title")).to.equal(true);

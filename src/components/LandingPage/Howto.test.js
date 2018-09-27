@@ -7,6 +7,7 @@ describe("<Howto />", () => {
   it("Renders without exploding", () => {
     shallow(<Howto />);
   });
+
   it("Renders the how tos flawlessly", () => {
     const wrapper = shallow(<Howto />);
     expect(wrapper.exists(".howto-title")).to.equal(true);

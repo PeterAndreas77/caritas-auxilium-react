@@ -7,6 +7,7 @@ describe("<Hero />", () => {
   it("Renders without exploding", () => {
     shallow(<Hero />);
   });
+
   it("Renders the button links", () => {
     const wrapper = shallow(<Hero />);
     expect(wrapper.exists(".button")).to.equal(true);

@@ -7,6 +7,7 @@ describe("<Footer />", () => {
   it("Renders without exploding", () => {
     shallow(<Footer />);
   });
+
   it("Render the footer flawlessly", () => {
     const wrapper = shallow(<Footer />);
     expect(wrapper.exists(".footer")).to.equal(true);
