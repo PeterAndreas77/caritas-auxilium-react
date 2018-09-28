@@ -9,12 +9,20 @@ export class RegistrationPage extends React.Component {
 
   submit = user => {
     this.props.dispatch(userRegister(user)).then(() => {
-      this.setState({ toMainPage: true });
-      this.props.registered();
+      const { authenticated } = this.props;
+      if (authenticated) {
+        this.setState({ toMainPage: true });
+        this.props.registered();
+      }
     });
   };
 
   render() {
+    const { error } = this.props;
+    if (error) {
+      return <section className="login-page">Error! {error.message}</section>;
+    }
+
     if (this.state.toMainPage === true) {
       return <Redirect to="/crisis" />;
     }
@@ -27,4 +35,9 @@ export class RegistrationPage extends React.Component {
   }
 }
 
-export default connect()(RegistrationPage);
+const mapStateToProps = state => ({
+  error: state.authReducer.error,
+  authenticated: state.authReducer.authenticated
+});
+
+export default connect(mapStateToProps)(RegistrationPage);

@@ -36,8 +36,8 @@ export class LoginPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.loginReducer.error,
-  authenticated: state.loginReducer.authenticated
+  error: state.authReducer.error,
+  authenticated: state.authReducer.authenticated
 });
 
 export default connect(mapStateToProps)(LoginPage);

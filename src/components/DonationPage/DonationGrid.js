@@ -5,8 +5,7 @@ import { fetchDonation } from "../../actions/DonationActions";
 
 export class DonationGrid extends React.Component {
   componentDidMount() {
-    const username = localStorage.getItem("loggedInUser");
-    this.props.dispatch(fetchDonation(username));
+    this.props.dispatch(fetchDonation());
   }
 
   render() {

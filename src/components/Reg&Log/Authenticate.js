@@ -22,7 +22,7 @@ export default function(PassedComponents) {
   }
 
   const mapStateToProps = state => ({
-    authenticated: state.loginReducer.authenticated
+    authenticated: state.authReducer.authenticated
   });
 
   return withRouter(connect(mapStateToProps)(Authenticate));

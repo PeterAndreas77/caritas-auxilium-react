@@ -18,12 +18,13 @@ export const fetchDonationFailure = error => ({
   payload: { error }
 });
 
-export function fetchDonation(username) {
+export function fetchDonation() {
   return dispatch => {
     dispatch(fetchDonationStart());
+    const username = localStorage.getItem("loggedInUser");
     const request = {
       method: "get",
-      url: `${API_URL}donation-all/${username}`
+      url: `${API_URL}/donation-all/${username}`
     };
     return axios(request)
       .then(res => dispatch(fetchDonationSuccess(res.data)))
@@ -31,18 +32,16 @@ export function fetchDonation(username) {
   };
 }
 
-export function searchDonation(username, term) {
+export function searchDonation(term) {
   return dispatch => {
     dispatch(fetchDonationStart());
+    const username = localStorage.getItem("loggedInUser");
     const request = {
       method: "get",
-      url: `${API_URL}donation/search/${username}/${term}`
+      url: `${API_URL}/donation/search/${username}/${term}`
     };
     return axios(request)
-      .then(res => {
-        console.log(res.data);
-        dispatch(fetchDonationSuccess(res.data));
-      })
+      .then(res => dispatch(fetchDonationSuccess(res.data)))
       .catch(err => dispatch(fetchDonationFailure(err)));
   };
 }
@@ -69,7 +68,7 @@ export function createDonation(newObject) {
     dispatch(createDonationStart());
     const request = {
       method: "post",
-      url: `${API_URL}donation/create`,
+      url: `${API_URL}/donation/create`,
       data: newObject
     };
     return axios(request)
@@ -100,7 +99,7 @@ export function updateDonation(updateObject, id) {
     dispatch(updateDonationStart());
     const request = {
       method: "put",
-      url: `${API_URL}donation/update/${id}`,
+      url: `${API_URL}/donation/update/${id}`,
       data: updateObject
     };
     return axios(request)
@@ -131,7 +130,7 @@ export function deleteDonation(id) {
     dispatch(deleteDonationStart());
     const request = {
       method: "delete",
-      url: `${API_URL}donation/delete/${id}`
+      url: `${API_URL}/donation/delete/${id}`
     };
     return axios(request)
       .then(() => dispatch(deleteDonationSuccess(id)))

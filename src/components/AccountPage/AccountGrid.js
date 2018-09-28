@@ -11,7 +11,6 @@ export class AccountGrid extends React.Component {
 
   render() {
     const { item, loading, error } = this.props;
-    console.log(item);
 
     if (loading) {
       return (

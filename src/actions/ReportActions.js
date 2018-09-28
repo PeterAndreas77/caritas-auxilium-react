@@ -24,7 +24,7 @@ export default function fetchReport(year) {
     const username = localStorage.getItem("loggedInUser");
     const request = {
       method: "get",
-      url: `${API_URL}report/${username}/${year}`
+      url: `${API_URL}/report/${username}/${year}`
     };
     return axios(request)
       .then(res => dispatch(fetchReportSuccess(res.data)))

@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { recentCrisisReducer, singleCrisisReducer } from "./CrisisReducers";
 import { donationReducer } from "./DonationReducers";
-import { registrationReducer, loginReducer, userReducer } from "./UserReducers";
+import { authReducer, userReducer } from "./UserReducers";
 import reportReducer from "./ReportReducer";
 
 const rootReducer = combineReducers({
@@ -9,8 +9,7 @@ const rootReducer = combineReducers({
   singleCrisisReducer,
   donationReducer,
   reportReducer,
-  registrationReducer,
-  loginReducer,
+  authReducer,
   userReducer
 });
 

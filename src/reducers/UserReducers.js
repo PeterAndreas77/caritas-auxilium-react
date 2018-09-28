@@ -14,32 +14,25 @@ import {
   UPDATE_USER_FAILURE
 } from "../actions/UserActions";
 
-const registrationReducer = (state = {}, action) => {
-  switch (action.type) {
-    case USER_REGISTER_REQUEST:
-      return { registering: true };
-    case USER_REGISTER_SUCCESS:
-      return {};
-    case USER_REGISTER_FAILURE:
-      return {};
-    default:
-      return state;
-  }
-};
-
-const initialLogin = {
+const initialAuth = {
   authenticated: false,
   user: "",
   error: null
 };
 
-const loginReducer = (state = initialLogin, action) => {
+const authReducer = (state = initialAuth, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
       return { ...state, loggingIn: true, user: action.user };
     case USER_LOGIN_SUCCESS:
       return { ...state, authenticated: true, user: action.user };
     case USER_LOGIN_FAILURE:
+      return { ...state, authenticated: false, error: action.error };
+    case USER_REGISTER_REQUEST:
+      return { ...state, loggingIn: true, user: action.user };
+    case USER_REGISTER_SUCCESS:
+      return { ...state, authenticated: true, user: action.user };
+    case USER_REGISTER_FAILURE:
       return { ...state, authenticated: false, error: action.error };
     case USER_LOGOUT:
       return { ...state, authenticated: false };
@@ -73,4 +66,4 @@ const userReducer = (state = initialUser, action) => {
   }
 };
 
-export { registrationReducer, loginReducer, userReducer };
+export { authReducer, userReducer };

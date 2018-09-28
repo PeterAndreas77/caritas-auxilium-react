@@ -15,9 +15,8 @@ export class DonationSearch extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const username = localStorage.getItem("loggedInUser");
     const term = this.state.term.trim();
-    this.props.searchDonation(username, term);
+    this.props.searchDonation(term);
   }
 
   render() {
