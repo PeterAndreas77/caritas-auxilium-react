@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_URL } from "../config";
 
 export const FETCH_DONATION_START = "FETCH_DONATION_START";
 export const fetchDonationStart = () => ({
@@ -22,7 +23,7 @@ export function fetchDonation(username) {
     dispatch(fetchDonationStart());
     const request = {
       method: "get",
-      url: `http://localhost:8000/donation-all/${username}`
+      url: `${API_URL}donation-all/${username}`
     };
     return axios(request)
       .then(res => dispatch(fetchDonationSuccess(res.data)))
@@ -35,7 +36,7 @@ export function searchDonation(username, term) {
     dispatch(fetchDonationStart());
     const request = {
       method: "get",
-      url: `http://localhost:8000/donation/search/${username}/${term}`
+      url: `${API_URL}donation/search/${username}/${term}`
     };
     return axios(request)
       .then(res => {
@@ -68,7 +69,7 @@ export function createDonation(newObject) {
     dispatch(createDonationStart());
     const request = {
       method: "post",
-      url: `http://localhost:8000/donation/create`,
+      url: `${API_URL}donation/create`,
       data: newObject
     };
     return axios(request)
@@ -99,7 +100,7 @@ export function updateDonation(updateObject, id) {
     dispatch(updateDonationStart());
     const request = {
       method: "put",
-      url: `http://localhost:8000/donation/update/${id}`,
+      url: `${API_URL}donation/update/${id}`,
       data: updateObject
     };
     return axios(request)
@@ -130,7 +131,7 @@ export function deleteDonation(id) {
     dispatch(deleteDonationStart());
     const request = {
       method: "delete",
-      url: `http://localhost:8000/donation/delete/${id}`
+      url: `${API_URL}donation/delete/${id}`
     };
     return axios(request)
       .then(() => dispatch(deleteDonationSuccess(id)))

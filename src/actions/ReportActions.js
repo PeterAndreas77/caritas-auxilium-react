@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_URL } from "../config";
 
 export const FETCH_REPORT_START = "FETCH_REPORT_START";
 export const fetchReportStart = () => ({
@@ -23,7 +24,7 @@ export default function fetchReport(year) {
     const username = localStorage.getItem("loggedInUser");
     const request = {
       method: "get",
-      url: `http://localhost:8000/report/${username}/${year}`
+      url: `${API_URL}report/${username}/${year}`
     };
     return axios(request)
       .then(res => dispatch(fetchReportSuccess(res.data)))

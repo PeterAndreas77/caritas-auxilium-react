@@ -1,5 +1,6 @@
 # Caritas Auxilium fullstack capstone
-Link to the live REACT application: https://protected-citadel-80015.herokuapp.com/
+
+Link to the live REACT application: https://caritas-react.herokuapp.com/
 ![logo](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/logo.png)
 
 # Goal & Use Case

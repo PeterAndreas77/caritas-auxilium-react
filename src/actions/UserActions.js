@@ -94,7 +94,7 @@ export function fetchUser(username) {
     dispatch(fetchUserStart());
     const request = {
       method: "get",
-      url: `http://localhost:8000/users/${username}`
+      url: `${API_URL}users/${username}`
     };
     return axios(request)
       .then(res => dispatch(fetchUserSuccess(res.data)))
@@ -124,7 +124,7 @@ export function updateUser(username, updateObject) {
     dispatch(updateUserStart());
     const request = {
       method: "put",
-      url: `http://localhost:8000/users/update/${username}`,
+      url: `${API_URL}users/update/${username}`,
       data: updateObject
     };
     return axios(request)
