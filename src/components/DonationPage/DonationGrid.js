@@ -18,11 +18,11 @@ export class DonationGrid extends React.Component {
           {item.created}
         </p>
         <p>
-          Confirmation #:
-          {item.confNum}
+          $ <strong>{item.amount}</strong> to {item.charity}
         </p>
         <p>
-          $<strong>{item.amount}</strong> to ${item.charity}
+          Confirmation Number:
+          <strong>( {item.confNum} )</strong>
         </p>
         <button
           onClick={() => {
