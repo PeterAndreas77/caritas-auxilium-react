@@ -23,95 +23,59 @@ export const Howto = () => {
         </em>
       </p>
       <div className="howto-content">
-        <ol>
-          <li>You must register or login to use this app.</li>
-          <li>
-            Click <span className="fake-btn">register</span> on the header to be
-            taken to the register page. You will be prompted to fill out a
-            registration form.
-          </li>
-          <li>
-            Click <span className="fake-btn">login</span> on the header to be
-            taken to the login page. You will be asked to enter your username
-            and password.
-          </li>
-          <li>
-            Once You registered or logged in, you will be inside the main user
-            page, which is populated with the latest ten crisis from around the
-            globe.
-          </li>
-          <li>
-            Click the <span className="fake-btn">link</span> on any crisis card
-            to read more of the crisis that interest you.
-          </li>
-          <li>
-            You can add any crisis that interest you to your crisis collection
-            by clicking the <span className="fake-btn">add</span> button.
-          </li>
-          <li>
-            Clicking the <span className="fake-btn">cancel</span> button will
-            return you to the recent crisis page.
-          </li>
-          <li>
-            You can also <span className="fake-btn">search</span> for any crisis
-            using any search term. The result is limited to ten crisis.
-          </li>
-          <li>
-            The crisis you added are located on{" "}
-            <span className="fake-btn">my crisis</span>.
-          </li>
-          <li>
-            You can search for a specific crisis you have chosen by using the
-            <span className="fake-btn">search</span>
-            bar.
-          </li>
-          <li>
-            Click the <span className="fake-btn">donate</span> button on the
-            crisis card to donate to that crisis. You are then prompted to fill
-            out a form to keep a record of your donation. (Unfortunately, there
-            is no charity API with a robust search features, so you have to do
-            your own googling to find your own charity to donate to the chosen
-            crisis)
-          </li>
-          <li>
-            Again, if you don't want to donate to that crisis, you can click the
-            <span className="fake-btn">cancel</span>
-            button.
-          </li>
-          <li>
-            Click <span className="fake-btn">delete</span> on the crisis card to
-            delete a crisis from your collection.
-          </li>
-          <li>
-            You can look at a list of your donations when you click{" "}
-            <span className="fake-btn">my donations</span>.
-          </li>
-          <li>
-            Click <span className="fake-btn">update</span> to update your chosen
-            donation.
-          </li>
-          <li>
-            Click <span className="fake-btn">delete</span> to delete your chosen
-            donation.
-          </li>
-          <li>
-            You can search for a specific donation using the{" "}
-            <span className="fake-btn">search</span>
-            bar.
-          </li>
-          <li>
-            <span className="fake-btn">my account</span> contain the details of
-            your account. You can change your first name, last name, and email
-            address, nothing more.
-          </li>
-          <li>
-            You can look at your donation activities throughout a certain year
-            by clicking
-            <span className="fake-btn">my reports</span>. Once you are inside
-            the page, you can <span className="fake-btn">pull</span>
-            report from the server.
-          </li>
-        </ol>
+        <p>
+          You must register or login to use this app. Click{" "}
+          <span className="fake-btn">register</span> on the header to be taken
+          to the register page. You will be prompted to fill out a registration
+          form. Click <span className="fake-btn">login</span> on the header to
+          be taken to the login page. You will be asked to enter your username
+          and password.
+        </p>
+        <p>
+          Once You registered or logged in, you will be inside the main user
+          page, which is populated with the latest ten crisis from around the
+          globe. Click the <span className="fake-btn">link</span> on any crisis
+          card to read more of the crisis that interest you. Clicking the{" "}
+          <span className="fake-btn">cancel</span> button will return you to the
+          recent crisis page. You can also{" "}
+          <span className="fake-btn">search</span> for any crisis using any
+          search term. The result is limited to ten crisis.
+        </p>
+
+        <p>
+          Click the <span className="fake-btn">donate</span> button on the
+          crisis card to donate to that crisis. You are then prompted to fill
+          out a form to keep a record of your donation. (Unfortunately, there is
+          no charity API with a robust search features, so you have to do your
+          own googling to find your own charity to donate to the chosen crisis).
+          Again, if you don't want to donate to that crisis, you can click the
+          <span className="fake-btn">cancel</span>
+          button.
+        </p>
+
+        <p>
+          You can look at a list of your donations when you click{" "}
+          <span className="fake-btn">my donations</span>. Click{" "}
+          <span className="fake-btn">update</span> to update your chosen
+          donation. Click <span className="fake-btn">delete</span> to delete
+          your chosen donation. You can search for a specific donation using the{" "}
+          <span className="fake-btn">search</span>
+          bar.
+        </p>
+
+        <p>
+          <span className="fake-btn">my account</span> contain the details of
+          your account. You can change your first name, last name, and email
+          address, nothing more.
+        </p>
+
+        <p>
+          You can look at your donation activities throughout a certain year by
+          clicking
+          <span className="fake-btn">my reports</span>. Once you are inside the
+          page, you can <span className="fake-btn">pull</span>
+          report from the server.
+        </p>
       </div>
     </section>
   );

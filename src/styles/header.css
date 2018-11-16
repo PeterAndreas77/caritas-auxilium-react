@@ -3,10 +3,14 @@
   -ms-grid-column: 1;
   grid-area: header;
   width: 100%;
-  height: 4rem;
   z-index: 1;
+  text-align: center;
+  padding: 1rem 0;
   color: #eeeeee;
   background-color: #222831;
   -webkit-box-shadow: 0 4px 10px #393e46;
   box-shadow: 0 4px 10px #393e46;
+}
+.header h1 span {
+  margin-right: 2rem;
 }
