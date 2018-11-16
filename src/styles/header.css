@@ -12,5 +12,6 @@
   box-shadow: 0 4px 10px #393e46;
 }
 .header h1 span {
-  margin-right: 2rem;
+  float: left;
+  margin-left: 2rem;
 }
