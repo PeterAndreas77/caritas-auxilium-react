@@ -2,7 +2,7 @@
 
 Link to the live REACT application: https://caritas-react.herokuapp.com/
 
-![logo](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/logo.png)
+![logo](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/logo-only.png)
 
 # Goal & Use Case
 
