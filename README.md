@@ -11,18 +11,23 @@ This is a simple humanitarian crisis donation logger app. Often times when peopl
 # User Stories & Initial UX
 
 1. Initial landing page explains what this app is for. Most of the instructions on how to use the app and other features will be on this page.
+
    ![image1](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/react-landing.jpg)
 
 2. Register Page asks users to register if they want to use the app. If they have an account already, they can log in immediately.
+
    ![image2](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/react-reglog.jpg)
 
 3. Main Page. Once users successfully register or log in, they will be directed to the main page. The main page is populated with recent humanitarian crises from all over the world. Users can click on a crisis card to read more about the crisis and donate if they feel compelled.
+
    ![image3](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/react-main.jpg)
 
 4. In this Donation page, users can see their acts. If there are any mistakes when entering the form or the users have not donated yet, users can update or delete the acts in their collection. These crisis cards contain more information about the crisis when they are clicked, same as main page ones.
+
    ![image4](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/react-donation.jpg)
 
 5. Account page contains information about the user. Logged in users can change the details of their information here. Reports page contains a detailed chart and summary of a user's donation during a certain year. The user can print out the report to use as a deduction item.
+
    ![image5](https://github.com/PeterAndreas77/caritas-auxilium-react/blob/master/images/react-accrep.jpg)
 
 # Screenshots
