@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -15,6 +16,14 @@ export const Hero = () => {
       <a href="#howto-page" className="button">
         how to use
       </a>
+      <div className="hero-btn-groups">
+        <Link to="/register">
+          <i className="fas fa-pencil-alt" /> Register
+        </Link>
+        <Link to="/login">
+          <i className="fas fa-sign-in-alt" /> Login
+        </Link>
+      </div>
     </section>
   );
 };

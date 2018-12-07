@@ -22,7 +22,7 @@ export class CrisisSearch extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <label htmlFor="term">Search recent crisis</label>
+        <label htmlFor="term">Search recent crisis </label>
         <input
           type="text"
           name="term"

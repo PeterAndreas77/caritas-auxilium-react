@@ -22,7 +22,7 @@ export class DonationSearch extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <label htmlFor="term">Search your donation</label>
+        <label htmlFor="term">Search your donation </label>
         <input
           type="text"
           name="term"
