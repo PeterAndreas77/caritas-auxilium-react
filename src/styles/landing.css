@@ -43,6 +43,8 @@
 }
 .button,
 .hero-btn-groups a {
+  display: inline-block;
+  width: 120px;
   margin: 0 20px;
   text-transform: uppercase;
   color: #fff;
@@ -55,7 +57,8 @@
   border-radius: 10px;
   font-weight: bold;
 }
-.button:hover {
+.button:hover,
+.hero-btn-groups a:hover {
   cursor: pointer;
   color: #00adb5;
   background-color: #fff;
